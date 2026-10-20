@@ -117,8 +117,7 @@
   var CERT_BADGES = [
     { alt: 'CompTIA Security+', href: 'https://www.credly.com/badges/b57651f6-2002-4ac5-9034-2aecdd2339d4', src: 'https://img.shields.io/badge/-CompTIA%20Security%2B-CC0000?style=flat-square&logo=comptia&logoColor=white' },
     { alt: 'Splunk Core Certified User', href: 'https://www.credly.com/badges/17cf74d0-02d9-4eff-b46e-a70867ac1dc2', src: 'https://img.shields.io/badge/-Splunk%20Core%20Certified%20User-000000?style=flat-square&logo=splunk&logoColor=white' },
-    { alt: 'Cisco Network Defense', href: 'https://www.credly.com/badges/f6de71d1-e0b8-40c3-89f6-c794412b4a6c', src: 'https://img.shields.io/badge/-Cisco%20Network%20Defense-1BA0D7?style=flat-square&logo=cisco&logoColor=white' },
-    { alt: 'Google AI Essentials', src: 'https://img.shields.io/badge/-Google%20AI%20Essentials-4285F4?style=flat-square&logo=google&logoColor=white' }
+    { alt: 'Cisco Network Defense', href: 'https://www.credly.com/badges/f6de71d1-e0b8-40c3-89f6-c794412b4a6c', src: 'https://img.shields.io/badge/-Cisco%20Network%20Defense-1BA0D7?style=flat-square&logo=cisco&logoColor=white' }
   ];
 
   var CONTACTS = [
