@@ -34,22 +34,22 @@
       {
         title: 'AI-assisted analysis, manually verified',
         meta: 'Oct 2026',
-        desc: 'In the SOC lab I used Claude to plan scans, parse output, research CVEs and draft reports, and I checked every AI-suggested finding with a manual tool before accepting it as evidence.',
-        tags: ['Claude', 'trust but verify'],
+        desc: 'In the SOC lab I used AI to help plan scans, parse output, research CVEs and draft reports, and I checked every AI-suggested finding with a manual tool before accepting it as evidence.',
+        tags: ['trust but verify', 'incident response'],
         link: 'https://github.com/janyris/soc-legacy-server-breach'
       },
       {
-        title: 'Study guides written with Claude',
+        title: 'AI-assisted study guides',
         meta: 'Oct 2026',
-        desc: 'Both certification guides were drafted with Claude while I studied, then fact-checked against the official exam objectives and vendor documentation.',
-        tags: ['Claude', 'documentation'],
+        desc: 'Both certification guides were drafted with AI assistance while I studied, then fact-checked against the official exam objectives and vendor documentation.',
+        tags: ['documentation', 'fact-checking'],
         link: 'https://github.com/janyris/splunk-core-certified-user-prep'
       },
       {
         title: 'This site',
         meta: 'Oct 2026',
-        desc: 'Designed and built with Claude Code. I keep it updated as I go, with new projects and log posts.',
-        tags: ['Claude Code', 'HTML', 'CSS', 'JavaScript'],
+        desc: 'Designed and built with AI assistance. I keep it updated as I go, with new projects and log posts.',
+        tags: ['HTML', 'CSS', 'JavaScript'],
         link: 'https://github.com/janyris'
       }
     ],
@@ -59,12 +59,12 @@
       {
         slug: 'rebuilding-this-site',
         type: 'ai',
-        title: 'Rebuilding this site with Claude Code',
+        title: 'Rebuilding this site',
         date: '2026-10-19',
         excerpt: 'Course done, certs earned. The site now shows only real work, and this log is where new work goes.',
         body: [
           'I just finished my cybersecurity training, so I rebuilt this site around what I have actually done: my projects, my certifications, and this log.',
-          'From here on, every lab, project or new thing I learn gets a short post here. I am building and updating the site with Claude Code as I go.'
+          'From here on, every lab, project or new thing I learn gets a short post here. I keep the site updated as I go.'
         ]
       },
       {
@@ -100,7 +100,7 @@
         excerpt: 'Passed SPLK-1001 and shared my notes and 103 practice questions.',
         body: [
           'I passed the Splunk Core Certified User (SPLK-1001) exam and shared the notes I used: one note per exam topic, an SPL command reference, and 103 original practice questions.',
-          'The notes were drafted with Claude while I studied, then every key fact was checked against Splunk\'s official documentation and linked to the page that confirms it.',
+          'The notes were drafted with AI assistance while I studied, then every key fact was checked against Splunk\'s official documentation and linked to the page that confirms it.',
           'Notes: <a href="https://github.com/janyris/splunk-core-certified-user-prep" target="_blank" rel="noopener noreferrer">github.com/janyris/splunk-core-certified-user-prep</a>'
         ]
       }
