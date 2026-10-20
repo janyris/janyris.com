@@ -217,7 +217,7 @@
     return (
       '<p class="tpl-eyebrow">// ai</p>' +
       '<h2 class="tpl-title">AI in my work</h2>' +
-      '<p class="tpl-lead">How I use AI today. Long term, I am heading toward AI security.</p>' +
+      '<p class="tpl-lead">I use Claude and Claude Code every day for research, documentation and scripting. I enjoy working with it, and I verify everything it produces before I rely on it. Long term, I am heading toward AI security.</p>' +
       '<div class="card-list">' + DATA.ai.map(itemCard).join('') + '</div>'
     );
   }

@@ -32,6 +32,7 @@
   --radius: 8px;
   --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --font-display: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-name: 'Michroma', system-ui, sans-serif;
   --font-body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -288,10 +289,11 @@ main { position: relative; z-index: 1; }
 }
 
 .hero-title {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(1.5rem, 3.5vw, 1.9rem);
-  letter-spacing: 0.08em;
+  font-family: var(--font-name);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3.8vw, 1.95rem);
+  letter-spacing: 0;
+  line-height: 1.05;
   margin: 0;
   color: var(--text);
 }
