@@ -57,17 +57,6 @@
     /* the log: newest first. type is one of note | cybersecurity | ai | personal */
     blog: [
       {
-        slug: 'rebuilding-this-site',
-        type: 'ai',
-        title: 'Rebuilding this site',
-        date: '2026-10-19',
-        excerpt: 'Course done, certs earned. The site now shows only real work, and this log is where new work goes.',
-        body: [
-          'I just finished my cybersecurity training, so I rebuilt this site around what I have actually done: my projects, my certifications, and this log.',
-          'From here on, every lab, project or new thing I learn gets a short post here. I keep the site updated as I go.'
-        ]
-      },
-      {
         slug: 'soc-lab-legacy-server-breach',
         type: 'cybersecurity',
         title: 'SOC lab: the legacy server breach',
