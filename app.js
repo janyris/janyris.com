@@ -96,10 +96,16 @@
     { name: 'AI & automation', skills: ['Claude Code', 'AI agents', 'Scripting'] }
   ];
 
-  var CERT_BADGES = [
-    { alt: 'CompTIA Security+', href: 'https://www.credly.com/badges/b57651f6-2002-4ac5-9034-2aecdd2339d4', src: 'https://img.shields.io/badge/-CompTIA%20Security%2B-CC0000?style=flat-square&logo=comptia&logoColor=white' },
-    { alt: 'Splunk Core Certified User', href: 'https://www.credly.com/badges/17cf74d0-02d9-4eff-b46e-a70867ac1dc2', src: 'https://img.shields.io/badge/-Splunk%20Core%20Certified%20User-000000?style=flat-square&logo=splunk&logoColor=white' },
-    { alt: 'Cisco Network Defense', href: 'https://www.credly.com/badges/f6de71d1-e0b8-40c3-89f6-c794412b4a6c', src: 'https://img.shields.io/badge/-Cisco%20Network%20Defense-1BA0D7?style=flat-square&logo=cisco&logoColor=white' }
+  var CERTS = [
+    { name: 'CompTIA Security+', href: 'https://www.credly.com/badges/b57651f6-2002-4ac5-9034-2aecdd2339d4' },
+    { name: 'Splunk Core Certified User', href: 'https://www.credly.com/badges/17cf74d0-02d9-4eff-b46e-a70867ac1dc2' },
+    { name: 'Cisco Network Defense', href: 'https://www.credly.com/badges/f6de71d1-e0b8-40c3-89f6-c794412b4a6c' }
+  ];
+
+  var PROFILE_LINKS = [
+    { label: 'github', href: 'https://github.com/janyris' },
+    { label: 'linkedin', href: 'https://www.linkedin.com/in/janyris/' },
+    { label: 'credly', href: 'https://www.credly.com/users/janyris/badges' }
   ];
 
   var CONTACTS = [
@@ -158,31 +164,25 @@
     );
   }
 
-  function certBadge(b) {
-    var img = '<img src="' + b.src + '" alt="' + escapeHtml(b.alt) + '" loading="lazy">';
-    if (!b.href) return img;
-    return '<a href="' + b.href + '" target="_blank" rel="noopener noreferrer" title="Verify on Credly">' + img + '</a>';
+  function extLink(label, href) {
+    return '<a class="item-link" href="' + href + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(label) + ' ' + linkIconSvg() + '</a>';
+  }
+
+  function kvRow(key, valueHtml) {
+    return '<dt>' + escapeHtml(key) + '</dt><dd>' + valueHtml + '</dd>';
   }
 
   function renderAbout() {
-    var skills = SKILL_GROUPS.reduce(function (all, g) { return all.concat(g.skills); }, []);
     return (
       '<p class="tpl-eyebrow">// about</p>' +
       '<h2 class="tpl-title">Security first, always</h2>' +
-      '<p class="tpl-lead">I am Janyris, a SOC analyst focused on detection and investigation, and long term on AI security. I use AI agents to speed up research, documentation and scripting, and I verify what they produce.</p>' +
-      '<dl class="tpl-section about-kv">' +
-        '<dt>background</dt><dd>IT · networking · graphic &amp; web design · blockchain</dd>' +
-        '<dt>github</dt><dd><a class="item-link" href="https://github.com/janyris" target="_blank" rel="noopener noreferrer">github.com/janyris ' + linkIconSvg() + '</a></dd>' +
-      '</dl>' +
-      '<div class="tpl-section">' +
-        '<h3 class="tpl-subhead">certifications</h3>' +
-        '<div class="badge-row">' + CERT_BADGES.map(certBadge).join('') + '</div>' +
-        '<p class="about-more"><a class="item-link" href="https://www.credly.com/users/janyris/badges" target="_blank" rel="noopener noreferrer">view all on Credly ' + linkIconSvg() + '</a></p>' +
-      '</div>' +
-      '<div class="tpl-section">' +
-        '<h3 class="tpl-subhead">skills &amp; tools</h3>' +
-        '<div class="skill-row">' + skills.map(function (s) { return '<span class="pill">' + escapeHtml(s) + '</span>'; }).join('') + '</div>' +
-      '</div>'
+      '<p class="tpl-lead">SOC analyst specializing in detection and investigation, with a long-term focus on AI security.</p>' +
+      '<dl class="about-kv">' +
+        kvRow('background', 'IT · networking · graphic &amp; web design · blockchain') +
+        kvRow('certs', CERTS.map(function (c) { return '<span class="kv-line">' + extLink(c.name, c.href) + '</span>'; }).join('')) +
+        SKILL_GROUPS.map(function (g) { return kvRow(g.name, g.skills.map(escapeHtml).join(' · ')); }).join('') +
+        kvRow('links', PROFILE_LINKS.map(function (l) { return extLink(l.label, l.href); }).join(' <span class="kv-sep">·</span> ')) +
+      '</dl>'
     );
   }
 
