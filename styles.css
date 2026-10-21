@@ -1,5 +1,5 @@
 /* ---------------------------------------------------
-   Janyris — portfolio
+   Janyris: portfolio
    Dark by default (moderate depth, clear surface hierarchy),
    with a light theme available via the toggle.
 --------------------------------------------------- */
@@ -358,7 +358,7 @@ main { position: relative; z-index: 1; }
 .pill2:focus-visible { transform: translateY(-1px); }
 .pill2:active { scale: 0.96; }
 
-/* shared press feedback — subtle tactile scale on click */
+/* shared press feedback: subtle tactile scale on click */
 .log-row, .dash-more, .back-link, .blog-row {
   transition: scale 0.15s ease-out;
 }
