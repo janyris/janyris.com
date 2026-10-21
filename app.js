@@ -44,13 +44,6 @@
         desc: 'Both certification guides were drafted with AI assistance while I studied, then fact-checked against the official exam objectives and vendor documentation.',
         tags: ['documentation', 'fact-checking'],
         link: 'https://github.com/janyris/splunk-core-certified-user-prep'
-      },
-      {
-        title: 'This site',
-        meta: 'Oct 2026',
-        desc: 'Designed and built with AI assistance. I keep it updated as I go, with new projects and log posts.',
-        tags: ['HTML', 'CSS', 'JavaScript'],
-        link: 'https://github.com/janyris'
       }
     ],
 
