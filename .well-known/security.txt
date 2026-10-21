@@ -1,0 +1,5 @@
+# Found a security issue on janyris.com? Thank you, please let me know.
+Contact: mailto:hello@janyris.com
+Expires: 2027-10-21T00:00:00.000Z
+Preferred-Languages: en, es
+Canonical: https://janyris.com/.well-known/security.txt

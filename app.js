@@ -113,19 +113,19 @@
       label: 'email',
       value: 'hello@janyris.com',
       href: 'mailto:hello@janyris.com',
-      icon: '<path d="M3.5 5.5h17v13h-17z"/><path d="m4 6.5 8 6.5 8-6.5"/>'
+      icon: '<path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>'
     },
     {
       label: 'github',
       value: 'github.com/janyris',
       href: 'https://github.com/janyris',
-      icon: '<path d="M12 3a9 9 0 0 0-2.85 17.54c.45.08.61-.2.61-.43v-1.68c-2.5.55-3.03-1.07-3.03-1.07-.41-1.04-1-1.32-1-1.32-.82-.56.06-.55.06-.55.91.06 1.38.93 1.38.93.8 1.38 2.11.98 2.63.75.08-.58.32-.98.57-1.21-2-.23-4.1-1-4.1-4.44 0-.98.35-1.79.92-2.42-.09-.23-.4-1.15.09-2.4 0 0 .75-.24 2.46.92a8.5 8.5 0 0 1 4.48 0c1.71-1.16 2.46-.92 2.46-.92.49 1.25.18 2.17.09 2.4.57.63.92 1.44.92 2.42 0 3.45-2.1 4.21-4.11 4.43.33.29.62.85.62 1.72v2.55c0 .24.16.51.62.43A9 9 0 0 0 12 3Z"/>'
+      icon: '<path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>'
     },
     {
       label: 'linkedin',
       value: 'linkedin.com/in/janyris',
       href: 'https://www.linkedin.com/in/janyris/',
-      icon: '<rect x="3.5" y="3.5" width="17" height="17" rx="2"/><path d="M8 10.5v6M8 7.8v.01M12.2 16.5v-3.6c0-1.1.7-1.9 2-1.9s2 .8 2 1.9v3.6M12.2 10.5v6"/>'
+      icon: '<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 4.892v6.449zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>'
     }
   ];
 
@@ -249,7 +249,7 @@
         CONTACTS.map(function (c) {
           return (
             '<a class="contact-row" href="' + c.href + '"' + (c.href.indexOf('mailto:') === 0 ? '' : ' target="_blank" rel="noopener noreferrer"') + '>' +
-              '<svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">' + c.icon + '</svg>' +
+              '<svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' + c.icon + '</svg>' +
               '<span><span class="contact-label">' + c.label + '</span><br><span class="contact-value">' + escapeHtml(c.value) + '</span></span>' +
             '</a>'
           );
@@ -275,6 +275,11 @@
   var framePath = document.getElementById('framePath');
   var frameClose = document.getElementById('frameClose');
   var lastFocused = null;
+  var behindFrame = document.querySelectorAll('.skip-link, .topbar, main, .status-bar');
+
+  function setBehindInert(on) {
+    Array.prototype.forEach.call(behindFrame, function (el) { el.inert = on; });
+  }
 
   function openRoute(route, opts) {
     opts = opts || {};
@@ -295,6 +300,7 @@
 
     lastFocused = document.activeElement;
     overlay.classList.add('open');
+    setBehindInert(true);
     document.body.style.overflow = 'hidden';
     frameBody.scrollTop = 0;
     frameBody.focus();
@@ -307,6 +313,7 @@
   function closeFrame(skipHash) {
     if (!overlay.classList.contains('open')) return;
     overlay.classList.remove('open');
+    setBehindInert(false);
     document.body.style.overflow = '';
     if (!skipHash) {
       history.pushState({ route: 'home' }, '', location.pathname + location.search);
@@ -476,7 +483,15 @@
     for (var i = 0; i < 24; i++) lines.push(row() + '   ' + row());
     pre.textContent = lines.join('\n');
     if (reducedMotion) return;
+
+    var heroVisible = true;
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        heroVisible = entries[0].isIntersecting;
+      }).observe(pre);
+    }
     setInterval(function () {
+      if (document.hidden || !heroVisible) return;
       lines.shift();
       lines.push(row() + '   ' + row());
       pre.textContent = lines.join('\n');
@@ -491,6 +506,7 @@
 
   var clockEl = document.getElementById('clock');
   function updateClock() {
+    if (document.hidden) return;
     var now = new Date();
     var h = String(now.getHours()).padStart(2, '0');
     var m = String(now.getMinutes()).padStart(2, '0');
@@ -499,4 +515,5 @@
   }
   updateClock();
   setInterval(updateClock, 1000);
+  document.addEventListener('visibilitychange', updateClock);
 })();
