@@ -9,23 +9,23 @@
     projects: [
       {
         title: 'SOC lab: the legacy server breach',
-        meta: 'Oct 2026',
+        meta: 'lab',
         desc: 'Incident response on a compromised legacy Linux server in an isolated VirtualBox lab, following PICERL. Found a backdoored FTP service (CVE-2011-2523) and a planted root shell, preserved evidence, contained and hardened the host, and wrote technical and executive reports.',
         tags: ['Nmap', 'Wireshark', 'iptables', 'Linux', 'Incident response'],
         link: 'https://github.com/janyris/soc-legacy-server-breach'
       },
       {
         title: 'Security+ (SY0-701) study guide',
-        meta: 'Oct 2026',
+        meta: 'study guide',
         desc: 'Free study guide I built while preparing for Security+: notes for all five domains, quick-reference sheets, and offline practice tools (scenario quiz, flashcards, acronym trainer).',
-        tags: ['CompTIA Security+', 'Study guide', 'HTML'],
+        tags: ['CompTIA Security+', 'HTML'],
         link: 'https://github.com/janyris/comptia-security-plus-prep'
       },
       {
         title: 'Splunk Core Certified User study notes',
-        meta: 'Oct 2026',
+        meta: 'study guide',
         desc: 'Notes and 103 original practice questions I used to pass SPLK-1001, with every key fact linked to the Splunk documentation page that confirms it.',
-        tags: ['Splunk', 'SPL', 'Study guide'],
+        tags: ['Splunk', 'SPL'],
         link: 'https://github.com/janyris/splunk-core-certified-user-prep'
       }
     ],
@@ -33,16 +33,16 @@
     ai: [
       {
         title: 'AI-assisted analysis, manually verified',
-        meta: 'Oct 2026',
+        meta: 'method',
         desc: 'In the SOC lab I used AI to help plan scans, parse output, research CVEs and draft reports, and I checked every AI-suggested finding with a manual tool before accepting it as evidence.',
         tags: ['Trust but verify', 'Incident response'],
         link: 'https://github.com/janyris/soc-legacy-server-breach'
       },
       {
         title: 'AI-assisted study guides',
-        meta: 'Oct 2026',
+        meta: 'documentation',
         desc: 'Both certification guides were drafted with AI assistance while I studied, then fact-checked against the official exam objectives and vendor documentation.',
-        tags: ['Documentation', 'Fact-checking'],
+        tags: ['Fact-checking'],
         link: 'https://github.com/janyris/splunk-core-certified-user-prep'
       }
     ],
