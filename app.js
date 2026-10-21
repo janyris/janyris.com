@@ -430,7 +430,7 @@
 
   (function typewriter() {
     var target = document.getElementById('typeTarget');
-    var text = 'whoami: soc analyst, learning in public';
+    var text = 'whoami: blue team, heading toward ai security';
     var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (reduced) {

@@ -32,7 +32,6 @@
   --radius: 8px;
   --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --font-display: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --font-name: 'Michroma', system-ui, sans-serif;
   --font-body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -289,9 +288,9 @@ main { position: relative; z-index: 1; }
 }
 
 .hero-title {
-  font-family: var(--font-name);
-  font-weight: 400;
-  font-size: 1.35rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
   letter-spacing: 0;
   line-height: 1.05;
   margin: 0;
@@ -881,6 +880,7 @@ main { position: relative; z-index: 1; }
 }
 
 @media (max-width: 420px) {
+  .hero-line { display: block; text-align: center; font-size: 13px; }
   /* log rows: full title on its own line, date + badge underneath */
   .log-row { flex-wrap: wrap; row-gap: 4px; }
   .log-title { flex-basis: calc(100% - 23px); white-space: normal; }
