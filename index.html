@@ -106,20 +106,30 @@
     </nav>
   </section>
 
-  <noscript>
-    <section class="noscript-summary">
-      <h2>About</h2>
-      <p>SOC analyst specializing in detection and investigation, with a long-term focus on AI security. CompTIA Security+ and Splunk Core Certified User. Background in IT, networking, graphic and web design, and blockchain.</p>
-      <h2>Projects</h2>
-      <ul>
-        <li><a href="https://github.com/janyris/soc-legacy-server-breach">SOC lab: the legacy server breach</a>: incident response on a compromised legacy Linux server (Nmap, Wireshark, iptables, PICERL).</li>
-        <li><a href="https://github.com/janyris/comptia-security-plus-prep">Security+ (SY0-701) study guide</a></li>
-        <li><a href="https://github.com/janyris/splunk-core-certified-user-prep">Splunk Core Certified User study notes</a></li>
-      </ul>
-      <h2>Links</h2>
-      <p><a href="https://github.com/janyris">GitHub</a> · <a href="https://www.linkedin.com/in/janyris/">LinkedIn</a> · <a href="https://www.credly.com/users/janyris/badges">Credly</a> · <a href="mailto:hello@janyris.com">hello@janyris.com</a></p>
-    </section>
-  </noscript>
+  <!-- static:start -->
+  <section class="static-content" aria-label="Site content">
+    <h2>About Janyris Cotto</h2>
+    <p>SOC analyst specializing in detection and investigation, with a long-term focus on AI security. Background in IT, networking, graphic &amp; web design, and blockchain.</p>
+    <h3>Certifications</h3>
+    <ul><li><a href="https://www.credly.com/badges/b57651f6-2002-4ac5-9034-2aecdd2339d4">CompTIA Security+</a></li><li><a href="https://www.credly.com/badges/17cf74d0-02d9-4eff-b46e-a70867ac1dc2">Splunk Core Certified User</a></li><li><a href="https://www.credly.com/badges/f6de71d1-e0b8-40c3-89f6-c794412b4a6c">Cisco Network Defense</a></li></ul>
+    <h3>Skills</h3>
+    <ul><li>SIEM &amp; logs: Splunk, SPL, Dashboards &amp; alerts</li><li>security ops: Alert triage, Incident response, Vulnerability analysis</li><li>networking: TCP/IP, Wireshark, Nmap, Linux</li><li>AI &amp; automation: Claude Code, AI agents, Scripting</li></ul>
+    <h2>Cybersecurity projects</h2>
+    <article><h3><a href="https://github.com/janyris/soc-legacy-server-breach">SOC lab: the legacy server breach</a></h3><p>Incident response on a compromised legacy Linux server in an isolated VirtualBox lab, following PICERL. Found a backdoored FTP service (CVE-2011-2523) and a planted root shell, preserved evidence, contained and hardened the host, and wrote technical and executive reports.</p><p>Tools and topics: Nmap, Wireshark, iptables, Linux, Incident response</p></article>
+    <article><h3><a href="https://github.com/janyris/comptia-security-plus-prep">Security+ (SY0-701) study guide</a></h3><p>Free study guide I built while preparing for Security+: notes for all five domains, quick-reference sheets, and offline practice tools (scenario quiz, flashcards, acronym trainer).</p><p>Tools and topics: CompTIA Security+, HTML</p></article>
+    <article><h3><a href="https://github.com/janyris/splunk-core-certified-user-prep">Splunk Core Certified User study notes</a></h3><p>Notes and 103 original practice questions I used to pass SPLK-1001, with every key fact linked to the Splunk documentation page that confirms it.</p><p>Tools and topics: Splunk, SPL</p></article>
+    <h2>AI in my work</h2>
+    <p>I use Claude and Claude Code every day for research, documentation and scripting. I enjoy working with it, and I verify everything it produces before I rely on it. Long term, I am heading toward AI security.</p>
+    <article><h3><a href="https://github.com/janyris/soc-legacy-server-breach">AI-assisted analysis, manually verified</a></h3><p>In the SOC lab I used AI to help plan scans, parse output, research CVEs and draft reports, and I checked every AI-suggested finding with a manual tool before accepting it as evidence.</p><p>Tools and topics: Trust but verify, Incident response</p></article>
+    <article><h3><a href="https://github.com/janyris/splunk-core-certified-user-prep">AI-assisted study guides</a></h3><p>Both certification guides were drafted with AI assistance while I studied, then fact-checked against the official exam objectives and vendor documentation.</p><p>Tools and topics: Fact-checking</p></article>
+    <h2>Log</h2>
+    <article id="log-soc-lab-legacy-server-breach"><h3>SOC lab: the legacy server breach</h3><p><time datetime="2026-10-12">2026-10-12</time></p><p>A legacy Ubuntu server was flagged for anomalous traffic. In an isolated VirtualBox host-only network, I scanned it from Kali and found about 25 open ports, including vsftpd 2.3.4 with its known backdoor (<strong>CVE-2011-2523</strong>) and a root shell already listening on port 1524.</p><p>The scanner could only guess the FTP version because the banner was masked. A targeted script scan confirmed the real version. Taking the guess at face value would have mislabeled the entry point.</p><p>I captured volatile state before isolating the host, then removed the backdoor, disabled xinetd, firewalled the entry point and verified the ports were closed. I wrote it up as a technical report and an executive briefing.</p><p>Full write-up: <a href="https://github.com/janyris/soc-legacy-server-breach" target="_blank" rel="noopener noreferrer">github.com/janyris/soc-legacy-server-breach</a></p></article>
+    <article id="log-security-plus-study-guide"><h3>Security+ study guide is public</h3><p><time datetime="2026-10-08">2026-10-08</time></p><p>I passed CompTIA Security+ (SY0-701) and published the study guide I built while preparing: notes for all five domains, reference sheets, and practice tools that work offline in a browser.</p><p>It was written with AI assistance and organized by CompTIA's published objectives. It contains no real exam questions.</p><p>Guide: <a href="https://github.com/janyris/comptia-security-plus-prep" target="_blank" rel="noopener noreferrer">github.com/janyris/comptia-security-plus-prep</a></p></article>
+    <article id="log-splunk-core-certified-user"><h3>Splunk Core Certified User: passed</h3><p><time datetime="2026-10-06">2026-10-06</time></p><p>I passed the Splunk Core Certified User (SPLK-1001) exam and shared the notes I used: one note per exam topic, an SPL command reference, and 103 original practice questions.</p><p>The notes were drafted with AI assistance while I studied, then every key fact was checked against Splunk's official documentation and linked to the page that confirms it.</p><p>Notes: <a href="https://github.com/janyris/splunk-core-certified-user-prep" target="_blank" rel="noopener noreferrer">github.com/janyris/splunk-core-certified-user-prep</a></p></article>
+    <h2>Links</h2>
+    <p><a href="https://github.com/janyris">GitHub</a> · <a href="https://www.linkedin.com/in/janyris/">LinkedIn</a> · <a href="https://www.credly.com/users/janyris/badges">Credly</a> · <a href="mailto:hello@janyris.com">hello@janyris.com</a></p>
+  </section>
+  <!-- static:end -->
 
   <section class="dashboard" aria-label="Overview">
     <div class="dash-grid">

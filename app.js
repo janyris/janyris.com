@@ -89,6 +89,12 @@
     ]
   };
 
+  var COPY = {
+    about: 'SOC analyst specializing in detection and investigation, with a long-term focus on AI security.',
+    background: ['IT', 'networking', 'graphic & web design', 'blockchain'],
+    ai: 'I use Claude and Claude Code every day for research, documentation and scripting. I enjoy working with it, and I verify everything it produces before I rely on it. Long term, I am heading toward AI security.'
+  };
+
   var SKILL_GROUPS = [
     { name: 'SIEM & logs', skills: ['Splunk', 'SPL', 'Dashboards & alerts'] },
     { name: 'security ops', skills: ['Alert triage', 'Incident response', 'Vulnerability analysis'] },
@@ -176,9 +182,9 @@
     return (
       '<p class="tpl-eyebrow">// about</p>' +
       '<h2 class="tpl-title">Security first, always</h2>' +
-      '<p class="tpl-lead">SOC analyst specializing in detection and investigation, with a long-term focus on AI security.</p>' +
+      '<p class="tpl-lead">' + escapeHtml(COPY.about) + '</p>' +
       '<dl class="about-kv">' +
-        kvRow('background', 'IT · networking · graphic &amp; web design · blockchain') +
+        kvRow('background', COPY.background.map(escapeHtml).join(' · ')) +
         kvRow('certs', CERTS.map(function (c) { return '<span class="kv-line">' + extLink(c.name, c.href) + '</span>'; }).join('')) +
         SKILL_GROUPS.map(function (g) { return kvRow(g.name, g.skills.map(escapeHtml).join(' · ')); }).join('') +
         kvRow('links', PROFILE_LINKS.map(function (l) { return extLink(l.label, l.href); }).join(' <span class="kv-sep">·</span> ')) +
@@ -199,7 +205,7 @@
     return (
       '<p class="tpl-eyebrow">// ai</p>' +
       '<h2 class="tpl-title">AI in my work</h2>' +
-      '<p class="tpl-lead">I use Claude and Claude Code every day for research, documentation and scripting. I enjoy working with it, and I verify everything it produces before I rely on it. Long term, I am heading toward AI security.</p>' +
+      '<p class="tpl-lead">' + escapeHtml(COPY.ai) + '</p>' +
       '<div class="card-list">' + DATA.ai.map(itemCard).join('') + '</div>'
     );
   }
