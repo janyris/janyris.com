@@ -363,7 +363,7 @@
   --------------------------------------------------- */
 
   var THEME_KEY = 'janyris-theme';
-  var THEME_COLORS = { dark: '#1b2340', light: '#f0e9d4' };
+  var THEME_COLORS = { dark: '#1b2029', light: '#f3eee4' };
   var rootEl = document.documentElement;
   var themeToggle = document.getElementById('themeToggle');
   var themeMeta = document.querySelector('meta[name="theme-color"]');
@@ -423,6 +423,64 @@
   }
 
   renderDashboard();
+
+  /* ---------------------------------------------------
+     Hero: decrypt-in text + ambient hex dump
+  --------------------------------------------------- */
+
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#%&*+=?/<>';
+
+  function scramble(el, delay) {
+    var target = el.textContent;
+    var frames = 16;
+    var stops = target.split('').map(function (ch, i) {
+      return ch === ' ' ? 0 : Math.round((i / target.length) * frames * 0.6 + Math.random() * frames * 0.4);
+    });
+    var frame = 0;
+    el.style.visibility = 'hidden';
+    setTimeout(function step() {
+      el.style.visibility = '';
+      el.textContent = target.split('').map(function (ch, i) {
+        if (ch === ' ' || frame >= stops[i]) return ch;
+        return GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+      }).join('');
+      if (frame++ < frames) setTimeout(step, 45);
+      else el.textContent = target;
+    }, delay);
+  }
+
+  if (!reducedMotion) {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-scramble]'), function (el, i) {
+      scramble(el, 120 + i * 140);
+    });
+  }
+
+  (function hexDump() {
+    var pre = document.getElementById('heroAscii');
+    if (!pre) return;
+    var offset = 0x7f3a0000;
+    function hex(n, w) { return ('0000000' + n.toString(16)).slice(-w); }
+    function row() {
+      var bytes = [], ascii = '';
+      for (var i = 0; i < 16; i++) {
+        var b = Math.floor(Math.random() * 256);
+        bytes.push(hex(b, 2));
+        ascii += b > 32 && b < 127 ? String.fromCharCode(b) : '.';
+      }
+      offset += 16;
+      return hex(offset, 8) + '  ' + bytes.slice(0, 8).join(' ') + '  ' + bytes.slice(8).join(' ') + '  |' + ascii + '|';
+    }
+    var lines = [];
+    for (var i = 0; i < 24; i++) lines.push(row() + '   ' + row());
+    pre.textContent = lines.join('\n');
+    if (reducedMotion) return;
+    setInterval(function () {
+      lines.shift();
+      lines.push(row() + '   ' + row());
+      pre.textContent = lines.join('\n');
+    }, 160);
+  })();
 
   /* ---------------------------------------------------
      Misc: year, clock

@@ -4,62 +4,64 @@
    with a light theme available via the toggle.
 --------------------------------------------------- */
 
+@font-face { font-family: 'Iosevka'; src: url(fonts/iosevka-400.woff2) format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Iosevka'; src: url(fonts/iosevka-600.woff2) format('woff2'); font-weight: 600 700; font-style: normal; font-display: swap; }
+
 :root {
   /* dark (default) */
-  --bg: #1b2340;
-  --bg-alt: #232c4d;
-  --bg-raise: #2c355c;
-  --accent: #6f82ff;
-  --accent-soft: rgba(111, 130, 255, 0.16);
-  --accent-line: rgba(111, 130, 255, 0.42);
-  --text: #eef0fb;
-  --text-dim: #aab0d6;
-  --text-faint: #8e94bf;
-  --border: rgba(238, 240, 251, 0.09);
-  --border-strong: rgba(238, 240, 251, 0.18);
+  --bg: #1b2029;
+  --bg-alt: #212732;
+  --bg-raise: #29303c;
+  --accent: #9db0dd;
+  --accent-soft: rgba(157, 176, 221, 0.13);
+  --accent-line: rgba(157, 176, 221, 0.38);
+  --text: #e4e7ec;
+  --text-dim: #aeb6c2;
+  --text-faint: #8f98a6;
+  --border: rgba(228, 231, 236, 0.08);
+  --border-strong: rgba(228, 231, 236, 0.16);
   --shadow: 0 30px 80px -20px rgba(2, 4, 14, 0.55);
-  --topbar-bg: rgba(27, 35, 64, 0.82);
+  --topbar-bg: rgba(27, 32, 41, 0.86);
   --overlay-scrim: rgba(4, 6, 14, 0.55);
   color-scheme: dark;
 
-  --pill-about: #a9b4d0;       --pill-about-bg: rgba(169, 180, 208, 0.14);
-  --pill-projects: #8b96ff;    --pill-projects-bg: rgba(139, 150, 255, 0.16);
-  --pill-notes: #f0b155;       --pill-notes-bg: rgba(240, 177, 85, 0.16);
-  --pill-ai: #b79bff;          --pill-ai-bg: rgba(183, 155, 255, 0.16);
-  --pill-contact: #5fe0ac;     --pill-contact-bg: rgba(95, 224, 172, 0.16);
-  --pill-personal: #f28fb0;    --pill-personal-bg: rgba(242, 143, 176, 0.16);
+  --pill-about: #b3bac6;       --pill-about-bg: rgba(179, 186, 198, 0.12);
+  --pill-projects: #9db0dd;    --pill-projects-bg: rgba(157, 176, 221, 0.13);
+  --pill-notes: #dcbc8a;       --pill-notes-bg: rgba(220, 188, 138, 0.12);
+  --pill-ai: #bfb0dd;          --pill-ai-bg: rgba(191, 176, 221, 0.12);
+  --pill-contact: #a3cdb6;     --pill-contact-bg: rgba(163, 205, 182, 0.12);
+  --pill-personal: #dcb0c2;    --pill-personal-bg: rgba(220, 176, 194, 0.12);
 
   --radius: 8px;
-  --font-mono: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-term: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --font-body: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Iosevka', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-display: var(--font-mono);
+  --font-body: var(--font-mono);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 :root[data-theme="light"] {
-  --bg: #f0e9d4;
-  --bg-alt: #e4d9b8;
-  --bg-raise: #d8cba0;
-  --accent: #3b4bd1;
-  --accent-soft: rgba(59, 75, 209, 0.14);
-  --accent-line: rgba(59, 75, 209, 0.4);
-  --text: #0a1240;
-  --text-dim: #33396b;
-  --text-faint: #545981;
-  --border: rgba(10, 18, 64, 0.14);
-  --border-strong: rgba(10, 18, 64, 0.28);
+  --bg: #f3eee4;
+  --bg-alt: #e9e2d4;
+  --bg-raise: #ddd4c2;
+  --accent: #44589a;
+  --accent-soft: rgba(68, 88, 154, 0.11);
+  --accent-line: rgba(68, 88, 154, 0.35);
+  --text: #1d2230;
+  --text-dim: #3f4757;
+  --text-faint: #5a6270;
+  --border: rgba(29, 34, 48, 0.12);
+  --border-strong: rgba(29, 34, 48, 0.24);
   --shadow: 0 30px 80px -20px rgba(10, 18, 64, 0.22);
-  --topbar-bg: rgba(240, 233, 212, 0.82);
+  --topbar-bg: rgba(243, 238, 228, 0.86);
   --overlay-scrim: rgba(10, 18, 64, 0.35);
   color-scheme: light;
 
-  --pill-about: #475569;       --pill-about-bg: rgba(71, 85, 105, 0.1);
-  --pill-projects: #4f46e5;    --pill-projects-bg: rgba(79, 70, 229, 0.1);
-  --pill-notes: #b45309;       --pill-notes-bg: rgba(180, 83, 9, 0.1);
-  --pill-ai: #7c3aed;          --pill-ai-bg: rgba(124, 58, 237, 0.1);
-  --pill-contact: #059669;     --pill-contact-bg: rgba(5, 150, 105, 0.1);
-  --pill-personal: #a3154f;    --pill-personal-bg: rgba(163, 21, 79, 0.1);
+  --pill-about: #5a6372;       --pill-about-bg: rgba(90, 99, 114, 0.09);
+  --pill-projects: #44589a;    --pill-projects-bg: rgba(68, 88, 154, 0.09);
+  --pill-notes: #7a5829;       --pill-notes-bg: rgba(122, 88, 41, 0.09);
+  --pill-ai: #66558f;          --pill-ai-bg: rgba(102, 85, 143, 0.09);
+  --pill-contact: #3d6e57;     --pill-contact-bg: rgba(61, 110, 87, 0.09);
+  --pill-personal: #8d4f68;    --pill-personal-bg: rgba(141, 79, 104, 0.09);
 }
 
 * { box-sizing: border-box; }
@@ -873,6 +875,44 @@ main { position: relative; z-index: 1; }
   .blog-row:active, .frame-close:active, .theme-toggle:active, .icon-btn:active { scale: 1; }
 }
 
-/* terminal details: Space Mono, the mono sibling of Space Grotesk */
-.frame-path, .tpl-eyebrow, .item-meta, .log-date, .blog-row-date, .post-meta,
-.tag, .log-badge, .status-bar { font-family: var(--font-term); }
+/* ---------------------------------------------------
+   Type scale: 14px on a 20px line, 12px for small print
+--------------------------------------------------- */
+
+body { font-size: 14px; line-height: 20px; }
+.tpl-lead, .item-desc, .post-body p, .blog-row-excerpt, .item-title, .log-title, .blog-row-title,
+.pill2, .pill, .dash-box-head, .cap-title, .brand-name, .contact-value, .item-link, .dash-more, .back-link {
+  font-size: 14px; line-height: 20px;
+}
+.tag, .log-badge, .item-meta, .log-date, .blog-row-date, .post-meta, .tpl-eyebrow, .tpl-subhead,
+.contact-label, .cap-count, .hero-pronunciation, .frame-path, .status-bar, .hero-kicker.hero-tagline {
+  font-size: 12px; line-height: 20px;
+}
+.tpl-title { font-size: 20px; line-height: 30px; }
+.hero-title { font-size: 22px; line-height: 30px; }
+
+/* the hex dump replaces the grid as the hero's texture */
+.bg-grid { display: none; }
+.hero { position: relative; overflow: hidden; }
+.hero > *:not(.hero-ascii) { position: relative; z-index: 1; }
+.hero-ascii {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--text-faint);
+  opacity: 0.1;
+  white-space: pre;
+  overflow: hidden;
+  text-align: center;
+  pointer-events: none;
+  user-select: none;
+  /* a soft ring: clear behind the text, fading out at every edge */
+  -webkit-mask-image: radial-gradient(ellipse 70% 72% at 50% 50%, transparent 18%, #000 46%, transparent 78%);
+  mask-image: radial-gradient(ellipse 70% 72% at 50% 50%, transparent 18%, #000 46%, transparent 78%);
+}
+:root[data-theme="light"] .hero-ascii { opacity: 0.07; }
+@media (max-width: 420px) {
+  .hero-kicker.hero-tagline { font-size: 11px; letter-spacing: 0.06em; }
+}
