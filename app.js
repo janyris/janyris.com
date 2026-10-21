@@ -8,24 +8,24 @@
   var DATA = {
     projects: [
       {
-        title: 'SOC Lab: The Legacy Server Breach',
+        title: 'SOC lab: the legacy server breach',
         meta: 'Oct 2026',
         desc: 'Incident response on a compromised legacy Linux server in an isolated VirtualBox lab, following PICERL. Found a backdoored FTP service (CVE-2011-2523) and a planted root shell, preserved evidence, contained and hardened the host, and wrote technical and executive reports.',
-        tags: ['Nmap', 'Wireshark', 'iptables', 'Linux', 'incident response'],
+        tags: ['Nmap', 'Wireshark', 'iptables', 'Linux', 'Incident response'],
         link: 'https://github.com/janyris/soc-legacy-server-breach'
       },
       {
-        title: 'Security+ (SY0-701) Study Guide',
+        title: 'Security+ (SY0-701) study guide',
         meta: 'Oct 2026',
         desc: 'Free study guide I built while preparing for Security+: notes for all five domains, quick-reference sheets, and offline practice tools (scenario quiz, flashcards, acronym trainer).',
-        tags: ['CompTIA Security+', 'study guide', 'HTML'],
+        tags: ['CompTIA Security+', 'Study guide', 'HTML'],
         link: 'https://github.com/janyris/comptia-security-plus-prep'
       },
       {
-        title: 'Splunk Core Certified User Study Notes',
+        title: 'Splunk Core Certified User study notes',
         meta: 'Oct 2026',
         desc: 'Notes and 103 original practice questions I used to pass SPLK-1001, with every key fact linked to the Splunk documentation page that confirms it.',
-        tags: ['Splunk', 'SPL', 'study guide'],
+        tags: ['Splunk', 'SPL', 'Study guide'],
         link: 'https://github.com/janyris/splunk-core-certified-user-prep'
       }
     ],
@@ -35,14 +35,14 @@
         title: 'AI-assisted analysis, manually verified',
         meta: 'Oct 2026',
         desc: 'In the SOC lab I used AI to help plan scans, parse output, research CVEs and draft reports, and I checked every AI-suggested finding with a manual tool before accepting it as evidence.',
-        tags: ['trust but verify', 'incident response'],
+        tags: ['Trust but verify', 'Incident response'],
         link: 'https://github.com/janyris/soc-legacy-server-breach'
       },
       {
         title: 'AI-assisted study guides',
         meta: 'Oct 2026',
         desc: 'Both certification guides were drafted with AI assistance while I studied, then fact-checked against the official exam objectives and vendor documentation.',
-        tags: ['documentation', 'fact-checking'],
+        tags: ['Documentation', 'Fact-checking'],
         link: 'https://github.com/janyris/splunk-core-certified-user-prep'
       }
     ],
@@ -90,10 +90,10 @@
   };
 
   var SKILL_GROUPS = [
-    { name: 'siem & logs', skills: ['Splunk', 'SPL', 'Dashboards & Alerts'] },
-    { name: 'security ops', skills: ['Alert Triage', 'Incident Response', 'Vulnerability Analysis'] },
+    { name: 'SIEM & logs', skills: ['Splunk', 'SPL', 'Dashboards & alerts'] },
+    { name: 'security ops', skills: ['Alert triage', 'Incident response', 'Vulnerability analysis'] },
     { name: 'networking', skills: ['TCP/IP', 'Wireshark', 'Nmap', 'Linux'] },
-    { name: 'ai & automation', skills: ['Claude Code', 'AI Agents', 'Scripting'] }
+    { name: 'AI & automation', skills: ['Claude Code', 'AI agents', 'Scripting'] }
   ];
 
   var CERT_BADGES = [
@@ -400,7 +400,7 @@
         '<svg class="log-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">' + logIconSvg(row.type) + '</svg>' +
         '<span class="log-title">' + escapeHtml(row.title) + '</span>' +
         '<span class="log-date">' + row.date + '</span>' +
-        '<span class="log-badge log-badge-' + row.type + '">' + row.type + '</span>' +
+        '<span class="log-badge log-badge-' + row.type + '">' + (row.type === 'ai' ? 'AI' : row.type) + '</span>' +
       '</button>'
     );
   }

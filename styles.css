@@ -30,9 +30,10 @@
   --pill-personal: #f28fb0;    --pill-personal-bg: rgba(242, 143, 176, 0.16);
 
   --radius: 8px;
-  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --font-display: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --font-body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-term: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-body: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -403,7 +404,7 @@ main { position: relative; z-index: 1; }
   align-items: center;
   gap: 10px;
   width: 100%;
-  padding: 9px 0;
+  padding: 12px 0;
   border-bottom: 1px solid var(--border);
   background: none;
   border-left: none;
@@ -417,11 +418,11 @@ main { position: relative; z-index: 1; }
 .log-row:first-child { padding-top: 0; }
 .log-row:last-child { border-bottom: none; }
 
-.log-icon { width: 13px; height: 13px; color: var(--text-faint); flex-shrink: 0; }
+.log-icon { width: 14px; height: 14px; color: var(--text-faint); flex-shrink: 0; }
 .log-title {
   flex: 1;
   min-width: 0;
-  font-size: 12px;
+  font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -429,12 +430,12 @@ main { position: relative; z-index: 1; }
 }
 .log-row:hover .log-title,
 .log-row:focus-visible .log-title { color: var(--accent); }
-.log-date { font-family: var(--font-mono); font-size: 10px; color: var(--text-faint); white-space: nowrap; }
+.log-date { font-family: var(--font-mono); font-size: 11.5px; color: var(--text-faint); white-space: nowrap; }
 
 .log-badge {
   font-family: var(--font-mono);
-  font-size: 9px;
-  padding: 3px 7px;
+  font-size: 10.5px;
+  padding: 3px 8px;
   border-radius: 5px;
   white-space: nowrap;
 }
@@ -655,7 +656,7 @@ main { position: relative; z-index: 1; }
 }
 
 .tpl-title {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 1.7rem;
   font-weight: 600;
   margin: 0 0 18px;
@@ -716,7 +717,7 @@ main { position: relative; z-index: 1; }
   flex-wrap: wrap;
 }
 
-.item-title { font-size: 14px; color: var(--text); font-weight: 600; }
+.item-title { font-family: var(--font-body); font-size: 15.5px; color: var(--text); font-weight: 600; }
 .item-meta { font-size: 10.5px; color: var(--text-faint); letter-spacing: 0.04em; white-space: nowrap; }
 
 .item-desc { font-family: var(--font-body); line-height: 1.6; color: var(--text-dim); font-size: 14px; margin: 8px 0 12px; max-width: 68ch; }
@@ -854,8 +855,8 @@ main { position: relative; z-index: 1; }
 @media (max-width: 420px) {
   /* log rows: full title on its own line, date + badge underneath */
   .log-row { flex-wrap: wrap; row-gap: 4px; }
-  .log-title { flex-basis: calc(100% - 23px); white-space: normal; }
-  .log-date { margin-left: 23px; }
+  .log-title { flex-basis: calc(100% - 24px); white-space: normal; }
+  .log-date { margin-left: 24px; }
   .blog-row { flex-wrap: wrap; }
   .blog-row-date { order: 3; }
   .pgp-block { font-size: 10px; }
@@ -871,3 +872,7 @@ main { position: relative; z-index: 1; }
   .pill2:active, .log-row:active, .dash-more:active, .back-link:active,
   .blog-row:active, .frame-close:active, .theme-toggle:active, .icon-btn:active { scale: 1; }
 }
+
+/* terminal details: Space Mono, the mono sibling of Space Grotesk */
+.frame-path, .tpl-eyebrow, .item-meta, .log-date, .blog-row-date, .post-meta,
+.tag, .log-badge, .status-bar { font-family: var(--font-term); }
