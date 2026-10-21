@@ -748,6 +748,15 @@ main { position: relative; z-index: 1; }
 
 .about-more { margin: 14px 0 0; }
 
+/* key/value rows, terminal style */
+.about-kv {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 4px 24px;
+}
+.about-kv dt { color: var(--text-faint); }
+.about-kv dd { margin: 0; color: var(--text); }
+
 /* blog list */
 
 .blog-list { display: flex; flex-direction: column; }

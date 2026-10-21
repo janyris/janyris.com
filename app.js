@@ -170,9 +170,10 @@
       '<p class="tpl-eyebrow">// about</p>' +
       '<h2 class="tpl-title">Security first, always</h2>' +
       '<p class="tpl-lead">I am Janyris, a SOC analyst focused on detection and investigation, and long term on AI security. I use AI agents to speed up research, documentation and scripting, and I verify what they produce.</p>' +
-      '<div class="tpl-section">' +
-        '<a class="item-link" href="https://github.com/janyris" target="_blank" rel="noopener noreferrer">github.com/janyris ' + linkIconSvg() + '</a>' +
-      '</div>' +
+      '<dl class="tpl-section about-kv">' +
+        '<dt>background</dt><dd>IT · networking · graphic &amp; web design · blockchain</dd>' +
+        '<dt>github</dt><dd><a class="item-link" href="https://github.com/janyris" target="_blank" rel="noopener noreferrer">github.com/janyris ' + linkIconSvg() + '</a></dd>' +
+      '</dl>' +
       '<div class="tpl-section">' +
         '<h3 class="tpl-subhead">certifications</h3>' +
         '<div class="badge-row">' + CERT_BADGES.map(certBadge).join('') + '</div>' +
