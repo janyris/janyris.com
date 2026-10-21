@@ -425,31 +425,6 @@
   renderDashboard();
 
   /* ---------------------------------------------------
-     Hero typewriter
-  --------------------------------------------------- */
-
-  (function typewriter() {
-    var target = document.getElementById('typeTarget');
-    var text = 'whoami: blue team, heading toward ai security';
-    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduced) {
-      target.textContent = text;
-      return;
-    }
-
-    var i = 0;
-    function tick() {
-      target.textContent = text.slice(0, i);
-      i++;
-      if (i <= text.length) {
-        setTimeout(tick, 26);
-      }
-    }
-    tick();
-  })();
-
-  /* ---------------------------------------------------
      Misc: year, clock
   --------------------------------------------------- */
 
