@@ -157,9 +157,9 @@ a { color: var(--accent); }
 
 /* ---------- top nav ---------- */
 
+/* transparent and not sticky, so content never scrolls behind it */
 .topbar {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 20;
   display: flex;
   align-items: center;
@@ -167,10 +167,6 @@ a { color: var(--accent); }
   justify-content: space-between;
   gap: 8px 16px;
   padding: 18px 28px;
-  /* same frosted glass as the windows */
-  -webkit-backdrop-filter: blur(36px) saturate(150%);
-  backdrop-filter: blur(36px) saturate(150%);
-  background: var(--glass);
   border-bottom: 1px solid var(--border);
 }
 
@@ -278,7 +274,7 @@ main { position: relative; z-index: 1; }
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 22px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   line-height: 1.05;
   margin: 0;
@@ -915,3 +911,10 @@ body { font-size: 14px; line-height: 20px; }
 .static-content p, .static-content ul { margin: 0 0 8px; }
 .static-content a { color: var(--accent); }
 .js .static-content { display: none; }
+
+/* section headings take the color of their nav item (kept last so it wins) */
+.sec-about    { color: var(--pill-about); }
+.sec-projects { color: var(--pill-projects); }
+.sec-notes    { color: var(--pill-notes); }
+.sec-ai       { color: var(--pill-ai); }
+.sec-contact  { color: var(--pill-contact); }

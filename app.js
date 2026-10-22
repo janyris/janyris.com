@@ -180,7 +180,7 @@
 
   function renderAbout() {
     return (
-      '<p class="tpl-eyebrow">// about</p>' +
+      '<p class="tpl-eyebrow sec-about">// about</p>' +
       '<h2 class="tpl-title">Security first, always</h2>' +
       '<p class="tpl-lead">' + escapeHtml(COPY.about) + '</p>' +
       '<dl class="about-kv">' +
@@ -194,7 +194,7 @@
 
   function renderProjects() {
     return (
-      '<p class="tpl-eyebrow">// cybersecurity</p>' +
+      '<p class="tpl-eyebrow sec-projects">// cybersecurity</p>' +
       '<h2 class="tpl-title">Cybersecurity</h2>' +
       '<p class="tpl-lead">Labs and projects I have built. Each one links to the full write-up on GitHub.</p>' +
       '<div class="card-list">' + DATA.projects.map(itemCard).join('') + '</div>'
@@ -203,7 +203,7 @@
 
   function renderAI() {
     return (
-      '<p class="tpl-eyebrow">// ai</p>' +
+      '<p class="tpl-eyebrow sec-ai">// ai</p>' +
       '<h2 class="tpl-title">AI in my work</h2>' +
       '<p class="tpl-lead">' + escapeHtml(COPY.ai) + '</p>' +
       '<div class="card-list">' + DATA.ai.map(itemCard).join('') + '</div>'
@@ -212,7 +212,7 @@
 
   function renderBlogList() {
     return (
-      '<p class="tpl-eyebrow">// log</p>' +
+      '<p class="tpl-eyebrow sec-notes">// log</p>' +
       '<h2 class="tpl-title">Log</h2>' +
       '<p class="tpl-lead">What I am working on and learning, newest first.</p>' +
       '<div class="blog-list">' +
@@ -239,7 +239,7 @@
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 5 8 12l7 7"/></svg>' +
         'back to log' +
       '</button>' +
-      '<p class="tpl-eyebrow">// log/' + escapeHtml(slug) + '</p>' +
+      '<p class="tpl-eyebrow sec-notes">// log/' + escapeHtml(slug) + '</p>' +
       '<h2 class="tpl-title">' + escapeHtml(post.title) + '</h2>' +
       '<p class="post-meta">' + formatDate(post.date) + '</p>' +
       '<div class="post-body">' + post.body.map(function (p) { return '<p>' + p + '</p>'; }).join('') + '</div>'
@@ -248,7 +248,7 @@
 
   function renderContact() {
     return (
-      '<p class="tpl-eyebrow">// contact</p>' +
+      '<p class="tpl-eyebrow sec-contact">// contact</p>' +
       '<h2 class="tpl-title">Get in touch</h2>' +
       '<p class="tpl-lead">Open to SOC analyst and cybersecurity roles, and to collaborating on labs and projects.</p>' +
       '<div class="contact-list">' +
