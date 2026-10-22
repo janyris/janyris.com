@@ -265,11 +265,11 @@
   }
 
   var ROUTES = {
-    about: { path: 'janyris:~/about$', render: renderAbout },
-    projects: { path: 'janyris:~/cybersecurity$', render: renderProjects },
-    ai: { path: 'janyris:~/ai$', render: renderAI },
-    blog: { path: 'janyris:~/log$', render: renderBlogList },
-    contact: { path: 'janyris:~/contact$', render: renderContact }
+    about: { path: '~/about$', render: renderAbout },
+    projects: { path: '~/cybersecurity$', render: renderProjects },
+    ai: { path: '~/ai$', render: renderAI },
+    blog: { path: '~/log$', render: renderBlogList },
+    contact: { path: '~/contact$', render: renderContact }
   };
 
   /* ---------------------------------------------------
@@ -295,7 +295,7 @@
     }
     if (route.indexOf('blog/') === 0) {
       var slug = route.slice(5);
-      framePath.textContent = 'janyris:~/log/' + slug + '$';
+      framePath.textContent = '~/log/' + slug + '$';
       frameBody.innerHTML = renderBlogPost(slug);
     } else if (ROUTES[route]) {
       framePath.textContent = ROUTES[route].path;
