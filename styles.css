@@ -179,20 +179,14 @@ a { color: var(--accent); }
 }
 
 /* the favicon's >_ drawn without its tile, so it follows the theme */
-/* sized to the cap height of the 14px name beside it */
+/* sized to match the header icon buttons */
 .brand-logo {
   display: block;
-  width: 13px;
-  height: 12px;
+  width: 19px;
+  height: 17px;
 }
 .brand-logo-chevron { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
 .brand-logo-cursor { fill: var(--pill-contact); }
-
-.brand-name {
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  color: var(--text-dim);
-}
 
 .topbar-actions {
   display: flex;
@@ -833,7 +827,7 @@ main { position: relative; z-index: 1; }
 
 body { font-size: 14px; line-height: 20px; }
 .tpl-lead, .item-desc, .post-body p, .blog-row-excerpt, .item-title, .log-title, .blog-row-title,
-.pill2, .dash-box-head, .brand-name, .contact-value, .item-link, .dash-more, .back-link {
+.pill2, .dash-box-head, .contact-value, .item-link, .dash-more, .back-link {
   font-size: 14px; line-height: 20px;
 }
 .tag, .log-badge, .item-meta, .log-date, .blog-row-date, .post-meta, .tpl-eyebrow, .tpl-subhead,
