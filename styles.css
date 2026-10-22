@@ -22,7 +22,10 @@
   --border-strong: rgba(228, 231, 236, 0.16);
   --shadow: 0 30px 80px -20px rgba(2, 4, 14, 0.55);
   --topbar-bg: rgba(27, 32, 41, 0.86);
-  --overlay-scrim: rgba(4, 6, 14, 0.55);
+  --overlay-scrim: rgba(4, 6, 14, 0.3);
+  --glass: rgba(33, 39, 50, 0.38);
+  --glass-bar: rgba(41, 48, 60, 0.3);
+  --glass-edge: rgba(255, 255, 255, 0.1);
   color-scheme: dark;
 
   --pill-about: #b3bac6;       --pill-about-bg: rgba(179, 186, 198, 0.12);
@@ -53,7 +56,10 @@
   --border-strong: rgba(29, 34, 48, 0.24);
   --shadow: 0 30px 80px -20px rgba(10, 18, 64, 0.22);
   --topbar-bg: rgba(243, 238, 228, 0.86);
-  --overlay-scrim: rgba(10, 18, 64, 0.35);
+  --overlay-scrim: rgba(10, 18, 64, 0.18);
+  --glass: rgba(243, 238, 228, 0.42);
+  --glass-bar: rgba(221, 212, 194, 0.3);
+  --glass-edge: rgba(255, 255, 255, 0.55);
   color-scheme: light;
 
   --pill-about: #5a6372;       --pill-about-bg: rgba(90, 99, 114, 0.09);
@@ -495,7 +501,6 @@ main { position: relative; z-index: 1; }
   justify-content: center;
   padding: 5vh 20px;
   background: var(--overlay-scrim);
-  backdrop-filter: blur(4px);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.22s var(--ease), visibility 0.22s;
@@ -518,6 +523,18 @@ main { position: relative; z-index: 1; }
   transform: translateY(14px) scale(0.98);
   opacity: 0;
   transition: transform 0.28s var(--ease), opacity 0.28s var(--ease);
+}
+
+/* frosted glass like the desktop's blurred windows, only where blur is supported
+   so the text never sits on a see-through panel without it */
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .frame {
+    background: var(--glass);
+    -webkit-backdrop-filter: blur(36px) saturate(150%);
+    backdrop-filter: blur(36px) saturate(150%);
+    border-color: var(--glass-edge);
+  }
+  .frame-bar { background: var(--glass-bar); }
 }
 
 .overlay.open .frame {
