@@ -419,24 +419,13 @@
     );
   }
 
-  /* home preview of a project: a compact row like the log, opening the full list */
-  function projectRowHtml(p) {
-    return (
-      '<button type="button" class="log-row" data-route="projects">' +
-        '<svg class="log-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">' + logIconSvg('cybersecurity') + '</svg>' +
-        '<span class="log-title">' + escapeHtml(p.title) + '</span>' +
-        '<span class="log-badge log-badge-cybersecurity">' + escapeHtml(p.meta) + '</span>' +
-      '</button>'
-    );
-  }
-
   function renderDashboard() {
     var log = DATA.blog.slice(0, 6).map(function (post) {
       return { title: post.title, date: formatDate(post.date), type: post.type, slug: post.slug };
     });
 
     document.getElementById('logList').innerHTML = log.map(logRowHtml).join('');
-    document.getElementById('cybersecurityList').innerHTML = DATA.projects.slice(0, 6).map(projectRowHtml).join('');
+    document.getElementById('cybersecurityList').innerHTML = DATA.projects.slice(0, 2).map(itemCard).join('');
   }
 
   renderDashboard();
