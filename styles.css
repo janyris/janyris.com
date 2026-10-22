@@ -188,6 +188,16 @@ a { color: var(--accent); }
 .brand-logo-chevron { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
 .brand-logo-cursor { fill: var(--pill-contact); }
 
+.topbar-tagline {
+  flex: 1;
+  margin: 0 0 0 18px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+/* wrap between items, never inside one */
+.topbar-tagline span { white-space: nowrap; }
+
 .topbar-actions {
   display: flex;
   align-items: center;
@@ -257,21 +267,13 @@ main { position: relative; z-index: 1; }
   text-align: center;
 }
 
-.hero-kicker {
-  margin: 0 0 10px;
-  font-size: 11.5px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
 .hero-name-row {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  margin: 0 0 20px;
+  margin: 0 0 28px;
 }
 
 .hero-title {
@@ -292,9 +294,7 @@ main { position: relative; z-index: 1; }
   margin: 0;
 }
 
-.hero-kicker.hero-tagline { margin: 22px 0 30px; }
-/* wrap between items, never inside one */
-.hero-tagline span { white-space: nowrap; }
+
 
 /* ---------- pill nav ---------- */
 
@@ -302,17 +302,18 @@ main { position: relative; z-index: 1; }
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 6px 22px;
 }
 
 .pill2 {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  border: 1px solid transparent;
+  padding: 6px 2px;
+  border: none;
   background: none;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
   font-family: var(--font-mono);
   font-size: 11.5px;
   font-weight: 500;
@@ -321,7 +322,7 @@ main { position: relative; z-index: 1; }
   transition: border-color 0.2s var(--ease), transform 0.2s var(--ease), scale 0.15s ease-out;
 }
 .pill2:hover,
-.pill2:focus-visible { transform: translateY(-1px); }
+.pill2:focus-visible { text-decoration: underline; }
 .pill2:active { scale: 0.96; }
 
 /* shared press feedback: subtle tactile scale on click */
@@ -331,11 +332,11 @@ main { position: relative; z-index: 1; }
 .log-row:active, .dash-more:active, .back-link:active, .blog-row:active { scale: 0.96; }
 .pill2 svg { width: 14px; height: 14px; flex-shrink: 0; }
 
-.pill-about    { color: var(--pill-about);    background: var(--pill-about-bg); }
-.pill-projects { color: var(--pill-projects); background: var(--pill-projects-bg); }
-.pill-notes    { color: var(--pill-notes);    background: var(--pill-notes-bg); }
-.pill-ai       { color: var(--pill-ai);       background: var(--pill-ai-bg); }
-.pill-contact  { color: var(--pill-contact);  background: var(--pill-contact-bg); }
+.pill-about    { color: var(--pill-about); }
+.pill-projects { color: var(--pill-projects); }
+.pill-notes    { color: var(--pill-notes); }
+.pill-ai       { color: var(--pill-ai); }
+.pill-contact  { color: var(--pill-contact); }
 
 /* ---------- home dashboard ---------- */
 
@@ -790,7 +791,8 @@ main { position: relative; z-index: 1; }
 }
 @media (max-width: 720px) {
   .topbar { padding: 14px 18px; }
-  .hero-kicker.hero-tagline { font-size: 10px; letter-spacing: 0.06em; }
+  /* the tagline drops to its own row under the logo and icons */
+  .topbar .topbar-tagline { order: 3; flex-basis: 100%; margin: 0; font-size: 10px; letter-spacing: 0.06em; }
   .hero { padding: 64px 18px 32px; }
   .dashboard { padding: 0 18px 40px; }
   .dash-grid { grid-template-columns: minmax(0, 1fr); }
@@ -831,7 +833,7 @@ body { font-size: 14px; line-height: 20px; }
   font-size: 14px; line-height: 20px;
 }
 .tag, .log-badge, .item-meta, .log-date, .blog-row-date, .post-meta, .tpl-eyebrow, .tpl-subhead,
-.contact-label, .hero-pronunciation, .frame-path, .status-bar, .pagefoot, .hero-kicker.hero-tagline {
+.contact-label, .hero-pronunciation, .frame-path, .status-bar, .pagefoot, .topbar-tagline {
   font-size: 12px; line-height: 20px;
 }
 .tpl-title { font-size: 20px; line-height: 30px; }
@@ -859,9 +861,6 @@ body { font-size: 14px; line-height: 20px; }
   mask-image: radial-gradient(ellipse 70% 72% at 50% 50%, transparent 18%, #000 46%, transparent 78%);
 }
 :root[data-theme="light"] .hero-ascii { opacity: 0.07; }
-@media (max-width: 420px) {
-  .hero-kicker.hero-tagline { font-size: 11px; letter-spacing: 0.06em; }
-}
 
 /* ---------------------------------------------------
    404 page
