@@ -319,6 +319,7 @@ main { position: relative; z-index: 1; }
   transition: scale 0.15s ease-out;
 }
 .log-row:active, .dash-more:active, .back-link:active, .blog-row:active { scale: 0.96; }
+.dash-more[hidden] { display: none; }
 .pill2 svg { width: 14px; height: 14px; flex-shrink: 0; }
 
 .pill-about    { color: var(--pill-about); }

@@ -10,23 +10,9 @@
       {
         title: 'SOC lab: the legacy server breach',
         meta: 'lab',
-        desc: 'Incident response on a compromised legacy Linux server in an isolated VirtualBox lab, following PICERL. Found a backdoored FTP service (CVE-2011-2523) and a planted root shell, preserved evidence, contained and hardened the host, and wrote technical and executive reports.',
-        tags: ['Nmap', 'Wireshark', 'iptables', 'Linux', 'Incident response'],
+        desc: 'Incident response on a compromised legacy Linux server in an isolated VirtualBox lab, following PICERL. Found a backdoored FTP service (CVE-2011-2523) and a planted root shell, preserved evidence, contained and hardened the host, and wrote technical and executive reports. Includes a defender\'s view mapping each stage to MITRE ATT&CK with draft Splunk detections.',
+        tags: ['Nmap', 'Wireshark', 'iptables', 'Linux', 'Incident response', 'MITRE ATT&CK'],
         link: 'https://github.com/janyris/soc-legacy-server-breach'
-      },
-      {
-        title: 'Security+ (SY0-701) study guide',
-        meta: 'study guide',
-        desc: 'Free study guide I built while preparing for Security+: notes for all five domains, quick-reference sheets, and offline practice tools (scenario quiz, flashcards, acronym trainer).',
-        tags: ['CompTIA Security+', 'HTML'],
-        link: 'https://github.com/janyris/comptia-security-plus-prep'
-      },
-      {
-        title: 'Splunk Core Certified User study notes',
-        meta: 'study guide',
-        desc: 'Notes and 103 original practice questions I used to pass SPLK-1001, with every key fact linked to the Splunk documentation page that confirms it.',
-        tags: ['Splunk', 'SPL'],
-        link: 'https://github.com/janyris/splunk-core-certified-user-prep'
       }
     ],
 
@@ -37,13 +23,6 @@
         desc: 'In the SOC lab I used AI to help plan scans, parse output, research CVEs and draft reports, and I checked every AI-suggested finding with a manual tool before accepting it as evidence.',
         tags: ['Trust but verify', 'Incident response'],
         link: 'https://github.com/janyris/soc-legacy-server-breach'
-      },
-      {
-        title: 'AI-assisted study guides',
-        meta: 'documentation',
-        desc: 'Both certification guides were drafted with AI assistance while I studied, then fact-checked against the official exam objectives and vendor documentation.',
-        tags: ['Fact-checking'],
-        link: 'https://github.com/janyris/splunk-core-certified-user-prep'
       }
     ],
 
@@ -59,31 +38,8 @@
           'A legacy Ubuntu server was flagged for anomalous traffic. In an isolated VirtualBox host-only network, I scanned it from Kali and found about 25 open ports, including vsftpd 2.3.4 with its known backdoor (<strong>CVE-2011-2523</strong>) and a root shell already listening on port 1524.',
           'The scanner could only guess the FTP version because the banner was masked. A targeted script scan confirmed the real version. Taking the guess at face value would have mislabeled the entry point.',
           'I captured volatile state before isolating the host, then removed the backdoor, disabled xinetd, firewalled the entry point and verified the ports were closed. I wrote it up as a technical report and an executive briefing.',
+          'Then I worked the defender\'s side: for each stage (the scan, the backdoor trigger, the root shell, the persistence) what a SOC would see, where the signal lives, the MITRE ATT&CK technique, and draft Splunk searches to catch it. Validating those against replayed traffic is next.',
           'Full write-up: <a href="https://github.com/janyris/soc-legacy-server-breach" target="_blank" rel="noopener noreferrer">github.com/janyris/soc-legacy-server-breach</a>'
-        ]
-      },
-      {
-        slug: 'security-plus-study-guide',
-        type: 'note',
-        title: 'Security+ study guide is public',
-        date: '2026-10-08',
-        excerpt: 'Passed CompTIA Security+ and published the study guide I made along the way.',
-        body: [
-          'I passed CompTIA Security+ (SY0-701) and published the study guide I built while preparing: notes for all five domains, reference sheets, and practice tools that work offline in a browser.',
-          'It was written with AI assistance and organized by CompTIA\'s published objectives. It contains no real exam questions.',
-          'Guide: <a href="https://github.com/janyris/comptia-security-plus-prep" target="_blank" rel="noopener noreferrer">github.com/janyris/comptia-security-plus-prep</a>'
-        ]
-      },
-      {
-        slug: 'splunk-core-certified-user',
-        type: 'note',
-        title: 'Splunk Core Certified User: passed',
-        date: '2026-10-06',
-        excerpt: 'Passed SPLK-1001 and shared my notes and 103 practice questions.',
-        body: [
-          'I passed the Splunk Core Certified User (SPLK-1001) exam and shared the notes I used: one note per exam topic, an SPL command reference, and 103 original practice questions.',
-          'The notes were drafted with AI assistance while I studied, then every key fact was checked against Splunk\'s official documentation and linked to the page that confirms it.',
-          'Notes: <a href="https://github.com/janyris/splunk-core-certified-user-prep" target="_blank" rel="noopener noreferrer">github.com/janyris/splunk-core-certified-user-prep</a>'
         ]
       }
     ]
@@ -190,7 +146,7 @@
   function renderProjects() {
     return (
       '<p class="tpl-eyebrow sec-projects">// cybersecurity</p>' +
-      '<h2 class="tpl-title">Cybersecurity</h2>' +
+      '<h2 class="tpl-title">Labs &amp; investigations</h2>' +
       '<p class="tpl-lead">Labs and projects I have built. Each one links to the full write-up on GitHub.</p>' +
       '<div class="card-list">' + DATA.projects.map(itemCard).join('') + '</div>'
     );
@@ -208,8 +164,8 @@
   function renderBlogList() {
     return (
       '<p class="tpl-eyebrow sec-notes">// log</p>' +
-      '<h2 class="tpl-title">Log</h2>' +
-      '<p class="tpl-lead">What I am working on and learning, newest first.</p>' +
+      '<h2 class="tpl-title">What I am working on</h2>' +
+      '<p class="tpl-lead">Notes and write-ups, newest first.</p>' +
       '<div class="blog-list">' +
         DATA.blog.map(function (post) {
           return (
@@ -421,6 +377,8 @@
 
     document.getElementById('logList').innerHTML = log.map(logRowHtml).join('');
     document.getElementById('cybersecurityList').innerHTML = DATA.projects.slice(0, 2).map(itemCard).join('');
+    /* "view all" only when the window holds more than the home preview */
+    document.querySelector('.dash-more[data-route="projects"]').hidden = DATA.projects.length <= 2;
   }
 
   renderDashboard();
