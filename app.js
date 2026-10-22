@@ -29,6 +29,19 @@
     /* the log: newest first. type is one of note | cybersecurity | ai | personal */
     blog: [
       {
+        slug: 'home-soc-lab',
+        type: 'cybersecurity',
+        title: 'Building a home SOC lab',
+        date: '2026-10-21',
+        excerpt: 'In progress: an isolated KVM lab with Splunk and a monitored Windows 11 endpoint.',
+        body: [
+          'I am building a home SOC lab on my Fedora workstation with KVM and libvirt: a Splunk server and a Windows 11 endpoint on an isolated network with no route out, with a Kali attacker to follow.',
+          'So far the isolated network is up and verified (the Splunk VM cannot reach the internet), Splunk Enterprise is running on Ubuntu behind a host firewall that only allows SSH, the web interface and forwarder traffic, and a clean snapshot is saved.',
+          'The Windows 11 endpoint runs with Secure Boot and an emulated TPM. Sysmon and the Splunk Universal Forwarder are staged and checked against their published hashes before install.',
+          'Next: get Sysmon telemetry flowing into Splunk, then use it to validate the detections from my SOC lab write-up and build new ones with Atomic Red Team.'
+        ]
+      },
+      {
         slug: 'soc-lab-legacy-server-breach',
         type: 'cybersecurity',
         title: 'SOC lab: the legacy server breach',
