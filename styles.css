@@ -74,7 +74,6 @@ body,
 .frame-bar,
 .pill2,
 .dash-box,
-.cap-card,
 .item-card,
 .tag,
 .theme-toggle {
@@ -169,7 +168,7 @@ a { color: var(--accent); }
 
 .brand {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 10px;
   text-decoration: none;
   color: var(--text);
@@ -179,16 +178,14 @@ a { color: var(--accent); }
   font-family: var(--font-mono);
 }
 
-.brand-mark {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 0.02em;
-  color: var(--accent);
-  border: 1px solid var(--accent-line);
-  border-radius: 4px;
-  padding: 2px 6px;
+/* the favicon's >_ drawn without its tile, so it follows the theme */
+.brand-logo {
+  display: block;
+  width: 22px;
+  height: 20px;
 }
+.brand-logo-chevron { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.brand-logo-cursor { fill: var(--pill-contact); }
 
 .brand-name {
   font-size: 13px;
@@ -211,17 +208,17 @@ a { color: var(--accent); }
   width: 36px;
   height: 36px;
   background: none;
-  border: 1px solid var(--border-strong);
+  border: none;
   border-radius: 8px;
   color: var(--text-dim);
   cursor: pointer;
   flex-shrink: 0;
-  transition: color 0.2s var(--ease), border-color 0.2s var(--ease), scale 0.15s ease-out;
+  transition: color 0.2s var(--ease), scale 0.15s ease-out;
 }
 .theme-toggle:hover,
 .theme-toggle:focus-visible,
 .icon-btn:hover,
-.icon-btn:focus-visible { color: var(--text); border-color: var(--accent-line); }
+.icon-btn:focus-visible { color: var(--accent); }
 .theme-toggle:active,
 .icon-btn:active { scale: 0.96; }
 .icon-btn { color: var(--text); }
@@ -350,7 +347,7 @@ main { position: relative; z-index: 1; }
 .dashboard {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 28px 56px;
+  padding: 0 28px 120px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -359,13 +356,11 @@ main { position: relative; z-index: 1; }
 .dash-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
+  gap: 20px 56px;
 }
 
 .dash-box {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px;
+  padding: 20px 0;
   scroll-margin-top: 90px;
 }
 
@@ -445,39 +440,16 @@ main { position: relative; z-index: 1; }
 .log-badge-ai            { color: var(--pill-ai);       background: var(--pill-ai-bg); }
 .log-badge-personal      { color: var(--pill-personal); background: var(--pill-personal-bg); }
 
-.cap-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.cap-card {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 13px 14px;
-}
-
-.cap-title {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 6px;
-}
-.cap-plus { color: var(--accent); font-weight: 700; }
-.cap-count { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-faint); }
-
 /* ---------- footer / status bar ---------- */
 
+/* pinned bottom-right, mirroring the status bar on the left */
 .pagefoot {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 20px 28px 100px;
-  display: flex;
-  justify-content: center;
-  font-size: 11px;
+  position: fixed;
+  right: 20px;
+  bottom: 18px;
+  z-index: 15;
+  padding: 6px 0;
+  letter-spacing: 0.06em;
   color: var(--text-faint);
 }
 
@@ -492,11 +464,7 @@ main { position: relative; z-index: 1; }
   font-size: 10.5px;
   letter-spacing: 0.06em;
   color: var(--text-faint);
-  background: var(--topbar-bg);
-  backdrop-filter: blur(6px);
-  border: 1px solid var(--border);
-  padding: 6px 12px;
-  border-radius: 999px;
+  padding: 6px 0;
 }
 
 .status-dot {
@@ -516,8 +484,7 @@ main { position: relative; z-index: 1; }
 
 .status-clock {
   color: var(--text-dim);
-  border-left: 1px solid var(--border);
-  padding-left: 8px;
+  padding-left: 6px;
   font-variant-numeric: tabular-nums;
 }
 
@@ -603,15 +570,15 @@ main { position: relative; z-index: 1; }
   align-items: center;
   justify-content: center;
   background: none;
-  border: 1px solid var(--border);
+  border: none;
   border-radius: 6px;
   color: var(--text-dim);
   cursor: pointer;
   flex-shrink: 0;
-  transition: color 0.2s var(--ease), border-color 0.2s var(--ease), scale 0.15s ease-out;
+  transition: color 0.2s var(--ease), scale 0.15s ease-out;
 }
 .frame-close:hover,
-.frame-close:focus-visible { color: var(--text); border-color: var(--border-strong); }
+.frame-close:focus-visible { color: var(--text); }
 .frame-close:active { scale: 0.96; }
 /* extend hit area to 44x44 without growing the visible box */
 .frame-close::after {
@@ -674,15 +641,11 @@ main { position: relative; z-index: 1; }
 
 /* project / ai cards */
 
-.card-list { display: flex; flex-direction: column; gap: 14px; }
+.card-list { display: flex; flex-direction: column; gap: 28px; }
 
 .item-card {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 18px 20px;
-  transition: border-color 0.2s var(--ease);
+  padding: 0;
 }
-.item-card:hover { border-color: var(--border-strong); }
 
 .item-head {
   display: flex;
@@ -828,6 +791,7 @@ main { position: relative; z-index: 1; }
   .dash-grid { grid-template-columns: minmax(0, 1fr); }
   /* decorative, and it covers content on smaller screens */
   .status-bar { display: none; }
+  .pagefoot { position: static; display: flex; justify-content: flex-end; padding: 24px 18px 32px; }
 }
 @media (max-width: 720px) {
   .topbar { padding: 14px 18px; }
@@ -835,7 +799,6 @@ main { position: relative; z-index: 1; }
   .hero { padding: 64px 18px 32px; }
   .dashboard { padding: 0 18px 40px; }
   .dash-grid { grid-template-columns: minmax(0, 1fr); }
-  .cap-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .frame-body { padding: 26px 20px 36px; }
   .overlay { padding: 0; }
   .frame { width: 100%; height: 100%; max-height: 100%; border-radius: 0; }
@@ -856,7 +819,7 @@ main { position: relative; z-index: 1; }
   .bg-grid { animation: none; }
   .pill2, .frame, .overlay { transition: none; }
   .status-dot { animation: none; }
-  body, .topbar, .status-bar, .frame, .frame-bar, .dash-box, .cap-card, .item-card, .tag, .theme-toggle { transition: none; }
+  body, .topbar, .status-bar, .frame, .frame-bar, .dash-box, .item-card, .tag, .theme-toggle { transition: none; }
   /* drop tactile scale + icon cross-fade motion, keep the static color/icon cues */
   .theme-toggle svg { transition: none; }
   .pill2:active, .log-row:active, .dash-more:active, .back-link:active,
@@ -869,11 +832,11 @@ main { position: relative; z-index: 1; }
 
 body { font-size: 14px; line-height: 20px; }
 .tpl-lead, .item-desc, .post-body p, .blog-row-excerpt, .item-title, .log-title, .blog-row-title,
-.pill2, .dash-box-head, .cap-title, .brand-name, .contact-value, .item-link, .dash-more, .back-link {
+.pill2, .dash-box-head, .brand-name, .contact-value, .item-link, .dash-more, .back-link {
   font-size: 14px; line-height: 20px;
 }
 .tag, .log-badge, .item-meta, .log-date, .blog-row-date, .post-meta, .tpl-eyebrow, .tpl-subhead,
-.contact-label, .cap-count, .hero-pronunciation, .frame-path, .status-bar, .hero-kicker.hero-tagline {
+.contact-label, .hero-pronunciation, .frame-path, .status-bar, .pagefoot, .hero-kicker.hero-tagline {
   font-size: 12px; line-height: 20px;
 }
 .tpl-title { font-size: 20px; line-height: 30px; }

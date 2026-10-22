@@ -397,7 +397,7 @@
   });
 
   /* ---------------------------------------------------
-     Home dashboard (log, cybersecurity preview, capabilities)
+     Home dashboard (log, cybersecurity preview)
   --------------------------------------------------- */
 
   function logIconSvg(type) {
@@ -426,14 +426,6 @@
 
     document.getElementById('logList').innerHTML = log.map(logRowHtml).join('');
     document.getElementById('cybersecurityList').innerHTML = DATA.projects.slice(0, 2).map(itemCard).join('');
-    document.getElementById('capGrid').innerHTML = SKILL_GROUPS.map(function (c) {
-      return (
-        '<div class="cap-card">' +
-          '<div class="cap-title"><span class="cap-plus">+</span> ' + escapeHtml(c.name) + '</div>' +
-          '<span class="cap-count">&#9656; ' + c.skills.length + (c.skills.length === 1 ? ' skill' : ' skills') + '</span>' +
-        '</div>'
-      );
-    }).join('');
   }
 
   renderDashboard();
