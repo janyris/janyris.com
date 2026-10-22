@@ -657,6 +657,8 @@ main { position: relative; z-index: 1; }
   align-items: baseline;
   gap: 12px;
   flex-wrap: wrap;
+  /* same measure as .item-desc, so the label ends where the text block does */
+  max-width: 68ch;
 }
 
 .item-title { font-family: var(--font-body); font-size: 15.5px; color: var(--text); font-weight: 600; }
