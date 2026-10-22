@@ -323,8 +323,20 @@ main { position: relative; z-index: 1; }
 .pill-notes    { color: var(--pill-notes); }
 .pill-ai       { color: var(--pill-ai); }
 .pill-contact  { color: var(--pill-contact); }
-/* hover: the item brightens to full text color */
+/* hover: the item brightens to full text color and a prompt cursor blinks after it */
 .pill2:hover, .pill2:focus-visible { color: var(--text); }
+.pill2 { position: relative; }
+.pill2::after {
+  content: '_';
+  position: absolute;
+  left: calc(100% - 2px);
+  opacity: 0;
+}
+.pill2:hover::after, .pill2:focus-visible::after { opacity: 1; animation: cursor-blink 1s steps(1) infinite; }
+@keyframes cursor-blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .pill2:hover::after, .pill2:focus-visible::after { animation: none; }
+}
 
 /* ---------- home dashboard ---------- */
 
