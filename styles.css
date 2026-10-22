@@ -169,7 +169,7 @@ a { color: var(--accent); }
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   text-decoration: none;
   color: var(--text);
   background: none;
@@ -179,10 +179,11 @@ a { color: var(--accent); }
 }
 
 /* the favicon's >_ drawn without its tile, so it follows the theme */
+/* sized to the cap height of the 14px name beside it */
 .brand-logo {
   display: block;
-  width: 22px;
-  height: 20px;
+  width: 13px;
+  height: 12px;
 }
 .brand-logo-chevron { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
 .brand-logo-cursor { fill: var(--pill-contact); }
