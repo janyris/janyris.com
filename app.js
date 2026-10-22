@@ -145,11 +145,6 @@
     });
   }
 
-  function formatDate(iso) {
-    var d = new Date(iso + 'T00:00:00');
-    return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-  }
-
   function linkIconSvg() {
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 15 19 5M19 5h-6M19 5v6"/></svg>';
   }
@@ -223,7 +218,7 @@
                 '<span class="blog-row-title">' + escapeHtml(post.title) + '</span>' +
                 '<span class="blog-row-excerpt">' + escapeHtml(post.excerpt) + '</span>' +
               '</span>' +
-              '<span class="blog-row-date">' + formatDate(post.date) + '</span>' +
+              '<span class="blog-row-date">' + post.date + '</span>' +
             '</button>'
           );
         }).join('') +
@@ -241,7 +236,7 @@
       '</button>' +
       '<p class="tpl-eyebrow sec-notes">// log/' + escapeHtml(slug) + '</p>' +
       '<h2 class="tpl-title">' + escapeHtml(post.title) + '</h2>' +
-      '<p class="post-meta">' + formatDate(post.date) + '</p>' +
+      '<p class="post-meta">' + post.date + '</p>' +
       '<div class="post-body">' + post.body.map(function (p) { return '<p>' + p + '</p>'; }).join('') + '</div>'
     );
   }
@@ -421,7 +416,7 @@
 
   function renderDashboard() {
     var log = DATA.blog.slice(0, 6).map(function (post) {
-      return { title: post.title, date: formatDate(post.date), type: post.type, slug: post.slug };
+      return { title: post.title, date: post.date, type: post.type, slug: post.slug };
     });
 
     document.getElementById('logList').innerHTML = log.map(logRowHtml).join('');
