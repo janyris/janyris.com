@@ -118,7 +118,8 @@
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 15 19 5M19 5h-6M19 5v6"/></svg>';
   }
 
-  function itemCard(item) {
+  /* type picks the label color, matching the log badges: cybersecurity | ai */
+  function itemCard(item, type) {
     var linkHtml = '';
     if (item.link) {
       linkHtml = '<a class="item-link" href="' + item.link + '" target="_blank" rel="noopener noreferrer">view ' + linkIconSvg() + '</a>';
@@ -126,7 +127,7 @@
     return (
       '<article class="item-card">' +
         '<div class="item-head"><span class="item-title">' + escapeHtml(item.title) + '</span>' +
-        '<span class="item-meta">' + escapeHtml(item.meta) + '</span></div>' +
+        '<span class="item-meta log-badge log-badge-' + type + '">' + escapeHtml(item.meta) + '</span></div>' +
         '<p class="item-desc">' + escapeHtml(item.desc) + '</p>' +
         '<div class="tag-row">' + item.tags.map(function (t) { return '<span class="tag">' + escapeHtml(t) + '</span>'; }).join('') + '</div>' +
         linkHtml +
@@ -161,7 +162,7 @@
       '<p class="tpl-eyebrow sec-projects">// cybersecurity</p>' +
       '<h2 class="tpl-title">Labs &amp; investigations</h2>' +
       '<p class="tpl-lead">Labs and projects I have built. Each one links to the full write-up on GitHub.</p>' +
-      '<div class="card-list">' + DATA.projects.map(itemCard).join('') + '</div>'
+      '<div class="card-list">' + DATA.projects.map(function (p) { return itemCard(p, 'cybersecurity'); }).join('') + '</div>'
     );
   }
 
@@ -170,7 +171,7 @@
       '<p class="tpl-eyebrow sec-ai">// ai</p>' +
       '<h2 class="tpl-title">AI in my work</h2>' +
       '<p class="tpl-lead">' + escapeHtml(COPY.ai) + '</p>' +
-      '<div class="card-list">' + DATA.ai.map(itemCard).join('') + '</div>'
+      '<div class="card-list">' + DATA.ai.map(function (p) { return itemCard(p, 'ai'); }).join('') + '</div>'
     );
   }
 
@@ -389,7 +390,7 @@
     });
 
     document.getElementById('logList').innerHTML = log.map(logRowHtml).join('');
-    document.getElementById('cybersecurityList').innerHTML = DATA.projects.slice(0, 2).map(itemCard).join('');
+    document.getElementById('cybersecurityList').innerHTML = DATA.projects.slice(0, 2).map(function (p) { return itemCard(p, 'cybersecurity'); }).join('');
     /* "view all" only when the window holds more than the home preview */
     document.querySelector('.dash-more[data-route="projects"]').hidden = DATA.projects.length <= 2;
   }
