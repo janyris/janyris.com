@@ -28,9 +28,10 @@ AI assistants are part of my analyst toolkit for research, scripting and documen
 ## Skills
 
 - SIEM & logs: Splunk, SPL, Dashboards & alerts
-- security ops: Alert triage, Incident response, Vulnerability analysis
-- networking: TCP/IP, Wireshark, Nmap, Linux
-- AI & automation: Claude Code, AI agents, Scripting
+- security ops: Incident response, Evidence preservation, Vulnerability analysis, MITRE ATT&CK
+- networking: TCP/IP, Wireshark, Nmap, iptables
+- systems: Linux, KVM/libvirt, Windows 11, PowerShell
+- AI: Claude Code, AI-assisted analysis
 
 ## Links
 

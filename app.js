@@ -64,11 +64,13 @@
     ai: 'AI assistants are part of my analyst toolkit for research, scripting and documentation. I treat AI output as a lead, not evidence: every finding is verified with a primary tool or source before it goes into a report. My long-term focus is AI security: how these systems are attacked, misused and defended.'
   };
 
+  /* only what can be backed up in an interview today; add as projects finish */
   var SKILL_GROUPS = [
     { name: 'SIEM & logs', skills: ['Splunk', 'SPL', 'Dashboards & alerts'] },
-    { name: 'security ops', skills: ['Alert triage', 'Incident response', 'Vulnerability analysis'] },
-    { name: 'networking', skills: ['TCP/IP', 'Wireshark', 'Nmap', 'Linux'] },
-    { name: 'AI & automation', skills: ['Claude Code', 'AI agents', 'Scripting'] }
+    { name: 'security ops', skills: ['Incident response', 'Evidence preservation', 'Vulnerability analysis', 'MITRE ATT&CK'] },
+    { name: 'networking', skills: ['TCP/IP', 'Wireshark', 'Nmap', 'iptables'] },
+    { name: 'systems', skills: ['Linux', 'KVM/libvirt', 'Windows 11', 'PowerShell'] },
+    { name: 'AI', skills: ['Claude Code', 'AI-assisted analysis'] }
   ];
 
   var CERTS = [
