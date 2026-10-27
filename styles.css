@@ -540,6 +540,42 @@ main { position: relative; z-index: 1; }
   opacity: 1;
 }
 
+/* glitch in/out: sliced horizontal jitter with a red/cyan channel split,
+   plus a scanline flicker (the desktop's Glitch + TV Glitch effects) */
+.frame { position: relative; }
+.frame.glitch-in  { animation: frame-glitch 0.4s steps(1, end) both; }
+.frame.glitch-out { animation: frame-glitch 0.4s steps(1, end) reverse both; }
+.frame.glitch-in::after,
+.frame.glitch-out::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 3px);
+  animation: frame-scan 0.4s linear both;
+}
+.frame.glitch-out::after { animation-direction: reverse; }
+
+@keyframes frame-glitch {
+  0%   { opacity: 0; transform: translateX(-14px); clip-path: inset(42% 0 44% 0);
+         filter: drop-shadow(-4px 0 rgba(255, 70, 100, 0.75)) drop-shadow(4px 0 rgba(70, 220, 255, 0.75)); }
+  12%  { opacity: 1; transform: translateX(10px);  clip-path: inset(8% 0 72% 0); }
+  24%  { transform: translateX(-7px); clip-path: inset(64% 0 12% 0); }
+  36%  { transform: translateX(5px);  clip-path: inset(22% 0 46% 0);
+         filter: drop-shadow(-3px 0 rgba(255, 70, 100, 0.6)) drop-shadow(3px 0 rgba(70, 220, 255, 0.6)); }
+  48%  { transform: translateX(-3px); clip-path: inset(0 0 30% 0); }
+  60%  { transform: translateX(2px);  clip-path: inset(0);
+         filter: drop-shadow(-2px 0 rgba(255, 70, 100, 0.45)) drop-shadow(2px 0 rgba(70, 220, 255, 0.45)); }
+  76%  { transform: translateX(-1px); filter: drop-shadow(-1px 0 rgba(255, 70, 100, 0.3)) drop-shadow(1px 0 rgba(70, 220, 255, 0.3)); }
+  100% { opacity: 1; transform: none; clip-path: inset(0); filter: none; }
+}
+@keyframes frame-scan {
+  0%   { opacity: 1; }
+  70%  { opacity: 0.6; }
+  100% { opacity: 0; }
+}
+
 .frame-bar {
   display: flex;
   align-items: center;

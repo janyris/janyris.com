@@ -254,6 +254,23 @@
     Array.prototype.forEach.call(behindFrame, function (el) { el.inert = on; });
   }
 
+  /* glitch in/out, after the Burn My Windows "glitch" effect on the desktop (400ms) */
+  var frame = document.getElementById('frame');
+  var GLITCH_MS = 400;
+  var closeTimer = null;
+
+  function glitch(dir) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
+    frame.classList.remove('glitch-in', 'glitch-out');
+    void frame.offsetWidth; /* restart the animation */
+    frame.classList.add('glitch-' + dir);
+    return true;
+  }
+
+  frame.addEventListener('animationend', function (e) {
+    if (e.target === frame) frame.classList.remove('glitch-in');
+  });
+
   function openRoute(route, opts) {
     opts = opts || {};
     if (route === 'home') {
@@ -271,7 +288,13 @@
       return;
     }
 
-    lastFocused = document.activeElement;
+    var alreadyOpen = overlay.classList.contains('open') && !closeTimer;
+    clearTimeout(closeTimer);
+    closeTimer = null;
+    if (!alreadyOpen) {
+      lastFocused = document.activeElement;
+      glitch('in');
+    }
     overlay.classList.add('open');
     setBehindInert(true);
     document.body.style.overflow = 'hidden';
@@ -284,8 +307,16 @@
   }
 
   function closeFrame(skipHash) {
-    if (!overlay.classList.contains('open')) return;
-    overlay.classList.remove('open');
+    if (!overlay.classList.contains('open') || closeTimer) return;
+    if (glitch('out')) {
+      closeTimer = setTimeout(function () {
+        closeTimer = null;
+        /* glitch-out stays on (holding the hidden end state) until the next open */
+        overlay.classList.remove('open');
+      }, GLITCH_MS);
+    } else {
+      overlay.classList.remove('open');
+    }
     setBehindInert(false);
     document.body.style.overflow = '';
     if (!skipHash) {
