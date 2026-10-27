@@ -270,9 +270,10 @@ main { position: relative; z-index: 1; }
 .hero-title {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 22px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  /* lowercase like a username; the markup keeps "Janyris" for screen readers and search */
+  text-transform: lowercase;
   line-height: 1.05;
   margin: 0;
   color: var(--text);
@@ -884,7 +885,7 @@ body { font-size: 14px; line-height: 20px; }
   font-size: 12px; line-height: 20px;
 }
 .tpl-title { font-size: 20px; line-height: 30px; }
-.hero-title { font-size: 22px; line-height: 30px; }
+.hero-title { font-size: 18px; line-height: 26px; }
 
 /* the hex dump replaces the grid as the hero's texture */
 .bg-grid { display: none; }
