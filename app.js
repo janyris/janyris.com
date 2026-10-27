@@ -493,7 +493,7 @@
       lines.shift();
       lines.push(row() + '   ' + row());
       pre.textContent = lines.join('\n');
-    }, 160);
+    }, 1500); /* slow drift: texture, not motion that competes with reading */
   })();
 
   /* ---------------------------------------------------
@@ -508,8 +508,7 @@
     var now = new Date();
     var h = String(now.getHours()).padStart(2, '0');
     var m = String(now.getMinutes()).padStart(2, '0');
-    var s = String(now.getSeconds()).padStart(2, '0');
-    clockEl.textContent = h + ':' + m + ':' + s;
+    clockEl.textContent = h + ':' + m;
   }
   updateClock();
   setInterval(updateClock, 1000);

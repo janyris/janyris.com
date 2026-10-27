@@ -472,14 +472,6 @@ main { position: relative; z-index: 1; }
   height: 6px;
   border-radius: 50%;
   background: #6ee7a0;
-  box-shadow: 0 0 0 0 rgba(110, 231, 160, 0.6);
-  animation: pulse 2.4s ease-out infinite;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(110, 231, 160, 0.45); }
-  70% { box-shadow: 0 0 0 7px rgba(110, 231, 160, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(110, 231, 160, 0); }
 }
 
 .status-clock {
