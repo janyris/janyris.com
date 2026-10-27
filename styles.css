@@ -43,9 +43,9 @@
 }
 
 :root[data-theme="light"] {
-  --bg: #eee8dd;
-  --bg-alt: #e9e2d4;
-  --bg-raise: #e5dfd4;
+  --bg: #eef1f5;
+  --bg-alt: #e6e9ee;
+  --bg-raise: #dde1e8;
   --accent: #44589a;
   --accent-soft: rgba(68, 88, 154, 0.11);
   --accent-line: rgba(68, 88, 154, 0.35);
@@ -55,9 +55,9 @@
   --border: rgba(29, 34, 48, 0.12);
   --border-strong: rgba(29, 34, 48, 0.24);
   --shadow: 0 30px 80px -20px rgba(10, 18, 64, 0.22);
-  --topbar-bg: rgba(238, 232, 221, 0.86);
+  --topbar-bg: rgba(238, 241, 245, 0.86);
   --overlay-scrim: rgba(10, 18, 64, 0.18);
-  --glass: rgba(238, 232, 221, 0.42);
+  --glass: rgba(238, 241, 245, 0.42);
   --glass-bar: rgba(255, 255, 255, 0.28);
   --glass-edge: rgba(255, 255, 255, 0.55);
   color-scheme: light;
