@@ -61,7 +61,7 @@
   var COPY = {
     about: 'SOC analyst specializing in detection and investigation, with a long-term focus on AI security.',
     background: ['IT', 'networking', 'graphic & web design', 'blockchain'],
-    ai: 'I use Claude and Claude Code every day for research, documentation and scripting. I enjoy working with it, and I verify everything it produces before I rely on it. Long term, I am heading toward AI security.'
+    ai: 'AI assistants are part of my analyst toolkit for research, scripting and documentation. I treat AI output as a lead, not evidence: every finding is verified with a primary tool or source before it goes into a report. My long-term focus is AI security: how these systems are attacked, misused and defended.'
   };
 
   var SKILL_GROUPS = [
@@ -169,7 +169,7 @@
   function renderAI() {
     return (
       '<p class="tpl-eyebrow sec-ai">// ai</p>' +
-      '<h2 class="tpl-title">AI in my work</h2>' +
+      '<h2 class="tpl-title">AI in practice</h2>' +
       '<p class="tpl-lead">' + escapeHtml(COPY.ai) + '</p>' +
       '<div class="card-list">' + DATA.ai.map(function (p) { return itemCard(p, 'ai'); }).join('') + '</div>'
     );

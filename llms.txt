@@ -8,9 +8,9 @@ Background in IT, networking, graphic & web design, and blockchain. Website: htt
 
 - [SOC lab: the legacy server breach](https://github.com/janyris/soc-legacy-server-breach): Incident response on a compromised legacy Linux server in an isolated VirtualBox lab, following PICERL. Found a backdoored FTP service (CVE-2011-2523) and a planted root shell, preserved evidence, contained and hardened the host, and wrote technical and executive reports. Includes a defender's view mapping each stage to MITRE ATT&CK with draft Splunk detections.
 
-## AI in my work
+## AI in practice
 
-I use Claude and Claude Code every day for research, documentation and scripting. I enjoy working with it, and I verify everything it produces before I rely on it. Long term, I am heading toward AI security.
+AI assistants are part of my analyst toolkit for research, scripting and documentation. I treat AI output as a lead, not evidence: every finding is verified with a primary tool or source before it goes into a report. My long-term focus is AI security: how these systems are attacked, misused and defended.
 
 - [AI-assisted analysis, manually verified](https://github.com/janyris/soc-legacy-server-breach): In the SOC lab I used AI to help plan scans, parse output, research CVEs and draft reports, and I checked every AI-suggested finding with a manual tool before accepting it as evidence.
 

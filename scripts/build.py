@@ -136,7 +136,7 @@ def build_html(c):
                 esc(x['link']), esc(x['title']), esc(x['desc']), esc(', '.join(x['tags']))))
 
     items('Cybersecurity projects', '', c['data']['projects'])
-    items('AI in my work', c['copy']['ai'], c['data']['ai'])
+    items('AI in practice', c['copy']['ai'], c['data']['ai'])
 
     out.append('<h2>Log</h2>')
     for p in c['data']['blog']:
@@ -165,7 +165,7 @@ def build_llms(c):
         '',
     ]
     lines += ['- [%s](%s): %s' % (x['title'], x['link'], x['desc']) for x in c['data']['projects']]
-    lines += ['', '## AI in my work', '', c['copy']['ai'], '']
+    lines += ['', '## AI in practice', '', c['copy']['ai'], '']
     lines += ['- [%s](%s): %s' % (x['title'], x['link'], x['desc']) for x in c['data']['ai']]
     lines += ['', '## Log', '']
     lines += ['- [%s](%s#blog/%s) (%s): %s' % (p['title'], SITE, p['slug'], p['date'], strip_tags(' '.join(p['body'][:-1])))
