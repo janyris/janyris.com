@@ -43,9 +43,9 @@
 }
 
 :root[data-theme="light"] {
-  --bg: #f3eee4;
+  --bg: #eee8dd;
   --bg-alt: #e9e2d4;
-  --bg-raise: #ddd4c2;
+  --bg-raise: #e5dfd4;
   --accent: #44589a;
   --accent-soft: rgba(68, 88, 154, 0.11);
   --accent-line: rgba(68, 88, 154, 0.35);
@@ -55,10 +55,10 @@
   --border: rgba(29, 34, 48, 0.12);
   --border-strong: rgba(29, 34, 48, 0.24);
   --shadow: 0 30px 80px -20px rgba(10, 18, 64, 0.22);
-  --topbar-bg: rgba(243, 238, 228, 0.86);
+  --topbar-bg: rgba(238, 232, 221, 0.86);
   --overlay-scrim: rgba(10, 18, 64, 0.18);
-  --glass: rgba(243, 238, 228, 0.42);
-  --glass-bar: rgba(221, 212, 194, 0.3);
+  --glass: rgba(238, 232, 221, 0.42);
+  --glass-bar: rgba(255, 255, 255, 0.28);
   --glass-edge: rgba(255, 255, 255, 0.55);
   color-scheme: light;
 
@@ -465,6 +465,7 @@ main { position: relative; z-index: 1; }
   border-radius: 50%;
   background: #6ee7a0;
 }
+:root[data-theme="light"] .status-dot { background: var(--pill-contact); }
 
 .status-clock {
   color: var(--text-dim);

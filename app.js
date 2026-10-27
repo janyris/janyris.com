@@ -375,7 +375,7 @@
   --------------------------------------------------- */
 
   var THEME_KEY = 'janyris-theme';
-  var THEME_COLORS = { dark: '#1b2029', light: '#f3eee4' };
+  var THEME_COLORS = { dark: '#1b2029', light: '#eee8dd' };
   var rootEl = document.documentElement;
   var themeToggle = document.getElementById('themeToggle');
   var themeMeta = document.querySelector('meta[name="theme-color"]');
