@@ -1,2 +1,17 @@
 .vscode/
 *Name clash*
+
+# Secrets: never commit (public repo)
+*.env
+.env*
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+*credentials*
+*token*
+
+# Local AI tooling and logs
+.claude/
+*.log
+session_history*
